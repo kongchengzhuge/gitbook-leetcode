@@ -1,2 +1,2 @@
-# gitbook-leetcode
-My leetcode summary
+# Initial page
+
