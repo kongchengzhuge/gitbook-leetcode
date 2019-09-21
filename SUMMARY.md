@@ -7,6 +7,7 @@
 * [5. Longest Palindromic Substring](5.-longest-palindromic-substring.md)
 * [6. ZigZag Conversion](6.-zigzag-conversion.md)
 * [7. Reverse Integer](7.-reverse-integer.md)
+* [9. Palindrome Number](9.-palindrome-number.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
