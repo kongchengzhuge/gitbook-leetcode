@@ -9,6 +9,13 @@
 * [7. Reverse Integer](7.-reverse-integer.md)
 * [9. Palindrome Number](9.-palindrome-number.md)
 * [10. Regular Expression MatchingHard](10.-regular-expression-matchinghard.md)
+* [11. Container With Most Water](11.-container-with-most-water.md)
+* [14. Longest Common Prefix](14.-longest-common-prefix.md)
+* [15. 3Sum](15.-3sum.md)
+* [16.3Sum Closest](16.3sum-closest.md)
+* [17. Letter Combinations of a Phone Number](17.-letter-combinations-of-a-phone-number.md)
+* [18. 4Sum](18.-4sum.md)
+* [19. Remove Nth Node From End of List](19.-remove-nth-node-from-end-of-list.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
