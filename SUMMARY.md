@@ -8,7 +8,7 @@
 * [6. ZigZag Conversion](6.-zigzag-conversion.md)
 * [7. Reverse Integer](7.-reverse-integer.md)
 * [9. Palindrome Number](9.-palindrome-number.md)
-* [10. Regular Expression MatchingHard](10.-regular-expression-matchinghard.md)
+* [10. Regular Expression Matching](10.-regular-expression-matchinghard.md)
 * [11. Container With Most Water](11.-container-with-most-water.md)
 * [14. Longest Common Prefix](14.-longest-common-prefix.md)
 * [15. 3Sum](15.-3sum.md)
