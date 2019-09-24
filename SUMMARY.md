@@ -16,7 +16,9 @@
 * [17. Letter Combinations of a Phone Number](17.-letter-combinations-of-a-phone-number.md)
 * [18. 4Sum](18.-4sum.md)
 * [19. Remove Nth Node From End of List](19.-remove-nth-node-from-end-of-list.md)
+* [20. Valid Parentheses](20.-valid-parentheses.md)
 * [21. Merge Two Sorted Lists](21.-merge-two-sorted-lists.md)
+* [22. Generate Parentheses](22.-generate-parentheses.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
