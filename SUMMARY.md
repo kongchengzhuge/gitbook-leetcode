@@ -22,6 +22,7 @@
 * [23. Merge k Sorted Lists](23.-merge-k-sorted-lists.md)
 * [24. Swap Nodes in Pairs](24.-swap-nodes-in-pairs.md)
 * [27. Remove Element](27.-remove-element.md)
+* [28. Implement strStr\(\)-KMP算法](28.-implement-strstrkmp-suan-fa.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
