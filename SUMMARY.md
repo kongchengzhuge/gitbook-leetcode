@@ -26,6 +26,7 @@
 * [29. Divide Two Integers](29.-divide-two-integers.md)
 * [31. Next Permutation](31.-next-permutation.md)
 * [32. Longest Valid Parentheses](32.-longest-valid-parentheses.md)
+* [33. Search in Rotated Sorted Array](33.-search-in-rotated-sorted-array.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
