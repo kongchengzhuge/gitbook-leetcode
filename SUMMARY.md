@@ -31,6 +31,8 @@
 * [35. Search Insert Position](35.-search-insert-position.md)
 * [36. Valid Sudoku](36.-valid-sudoku.md)
 * [39. Combination Sum](39.-combination-sum.md)
+* [40. Combination Sum II](40.-combination-sum-ii.md)
+* [41. First Missing Positive](41.-first-missing-positive.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
