@@ -34,6 +34,9 @@
 * [40. Combination Sum II](40.-combination-sum-ii.md)
 * [41. First Missing Positive](41.-first-missing-positive.md)
 * [42. Trapping Rain Water](42.-trapping-rain-water.md)
+* [44. Wildcard Matching](44.-wildcard-matching.md)
+* [45. Jump Game II](45.-jump-game-ii.md)
+* [46. Permutations](46.-permutations.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
