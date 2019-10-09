@@ -39,6 +39,7 @@
 * [46. Permutations](46.-permutations.md)
 * [47. Permutations II](47.-permutations-ii.md)
 * [48. Rotate Image](48.-rotate-image.md)
+* [49. Group Anagrams](49.-group-anagrams.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
