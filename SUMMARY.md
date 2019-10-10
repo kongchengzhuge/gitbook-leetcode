@@ -41,6 +41,7 @@
 * [48. Rotate Image](48.-rotate-image.md)
 * [49. Group Anagrams](49.-group-anagrams.md)
 * [50. Pow\(x, n\)](50.-pow-x-n.md)
+* [51. N-Queens](51.-n-queens.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
