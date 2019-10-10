@@ -42,6 +42,8 @@
 * [49. Group Anagrams](49.-group-anagrams.md)
 * [50. Pow\(x, n\)](50.-pow-x-n.md)
 * [51. N-Queens](51.-n-queens.md)
+* [52. N-Queens II](52.-n-queens-ii.md)
+* [53. Maximum Subarray](53.-maximum-subarray.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
