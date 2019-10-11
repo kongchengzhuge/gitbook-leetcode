@@ -46,6 +46,7 @@
 * [53. Maximum Subarray](53.-maximum-subarray.md)
 * [54. Spiral Matrix](54.-spiral-matrix.md)
 * [55. Jump Game](55.-jump-game.md)
+* [56. Merge Intervals](56.-merge-intervals.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
