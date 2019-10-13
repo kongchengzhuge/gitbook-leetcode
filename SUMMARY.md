@@ -49,6 +49,9 @@
 * [56. Merge Intervals](56.-merge-intervals.md)
 * [57. Insert Interval](57.-insert-interval.md)
 * [59. Spiral Matrix II](59.-spiral-matrix-ii.md)
+* [60. Permutation Sequence](60.-permutation-sequence.md)
+* [61. Rotate List](61.-rotate-list.md)
+* [62. Unique Paths](62.-unique-paths.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 
