@@ -54,6 +54,8 @@
 * [62. Unique Paths](62.-unique-paths.md)
 * [63. Unique Paths II](63.-unique-paths-ii.md)
 * [64. Minimum Path Sum](64.-minimum-path-sum.md)
+* [67. Add Binary](67.-add-binary.md)
+* [69. Sqrt\(x\)](69.-sqrt-x.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [1223. Dice Roll Simulation](1223.-dice-roll-simulation.md)
