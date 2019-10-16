@@ -60,6 +60,7 @@
 * [72. Edit Distance](72.-edit-distance.md)
 * [73. Set Matrix Zeroes](73.-set-matrix-zeroes.md)
 * [74. Search a 2D Matrix](74.-search-a-2d-matrix.md)
+* [75. Sort Colors](75.-sort-colors.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [1223. Dice Roll Simulation](1223.-dice-roll-simulation.md)
