@@ -58,6 +58,7 @@
 * [69. Sqrt\(x\)](69.-sqrt-x.md)
 * [70. Climbing Stairs](70.-climbing-stairs.md)
 * [72. Edit Distance](72.-edit-distance.md)
+* [73. Set Matrix Zeroes](73.-set-matrix-zeroes.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [1223. Dice Roll Simulation](1223.-dice-roll-simulation.md)
