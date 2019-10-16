@@ -64,6 +64,8 @@
 * [76. Minimum Window Substring](76.-minimum-window-substring.md)
 * [77. Combinations](77.-combinations.md)
 * [78. Subsets](78.-subsets.md)
+* [79. Word Search](79.-word-search.md)
+* [80. Remove Duplicates from Sorted Array II](80.-remove-duplicates-from-sorted-array-ii.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [1223. Dice Roll Simulation](1223.-dice-roll-simulation.md)
