@@ -67,6 +67,8 @@
 * [79. Word Search](79.-word-search.md)
 * [80. Remove Duplicates from Sorted Array II](80.-remove-duplicates-from-sorted-array-ii.md)
 * [81. Search in Rotated Sorted Array II](81.-search-in-rotated-sorted-array-ii.md)
+* [82. Remove Duplicates from Sorted List II](82.-remove-duplicates-from-sorted-list-ii.md)
+* [83. Remove Duplicates from Sorted List](83.-remove-duplicates-from-sorted-list.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
