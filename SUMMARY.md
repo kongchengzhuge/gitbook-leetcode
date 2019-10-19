@@ -70,6 +70,7 @@
 * [82. Remove Duplicates from Sorted List II](82.-remove-duplicates-from-sorted-list-ii.md)
 * [83. Remove Duplicates from Sorted List](83.-remove-duplicates-from-sorted-list.md)
 * [84. Largest Rectangle in Histogram](84.-largest-rectangle-in-histogram.md)
+* [85. Maximal Rectangle](85.-maximal-rectangle.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
