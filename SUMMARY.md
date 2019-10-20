@@ -72,6 +72,7 @@
 * [84. Largest Rectangle in Histogram](84.-largest-rectangle-in-histogram.md)
 * [85. Maximal Rectangle](85.-maximal-rectangle.md)
 * [86. Partition List](86.-partition-list.md)
+* [87. Scramble String](87.-scramble-string.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
