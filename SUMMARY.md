@@ -75,6 +75,7 @@
 * [87. Scramble String](87.-scramble-string.md)
 * [88. Merge Sorted Array](88.-merge-sorted-array.md)
 * [90. Subsets II](90.-subsets-ii.md)
+* [91. Decode Ways](91.-decode-ways.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
