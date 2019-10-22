@@ -79,6 +79,7 @@
 * [92. Reverse Linked List II](92.-reverse-linked-list-ii.md)
 * [93. Restore IP Addresses](93.-restore-ip-addresses.md)
 * [94. Binary Tree Inorder Traversal](94.-binary-tree-inorder-traversal.md)
+* [95. Unique Binary Search Trees II](95.-unique-binary-search-trees-ii.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
