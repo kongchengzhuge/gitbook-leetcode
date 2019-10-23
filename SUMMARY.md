@@ -81,6 +81,8 @@
 * [94. Binary Tree Inorder Traversal](94.-binary-tree-inorder-traversal.md)
 * [95. Unique Binary Search Trees II](95.-unique-binary-search-trees-ii.md)
 * [96. Unique Binary Search Trees](96.-unique-binary-search-trees.md)
+* [97. Interleaving String](97.-interleaving-string.md)
+* [98. Validate Binary Search Tree](98.-validate-binary-search-tree.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
