@@ -90,6 +90,7 @@
 * [103. Binary Tree Zigzag Level Order Traversal](103.-binary-tree-zigzag-level-order-traversal.md)
 * [104. Maximum Depth of Binary Tree](104.-maximum-depth-of-binary-tree.md)
 * [105. Construct Binary Tree from Preorder and Inorder Traversal](105.-construct-binary-tree-from-preorder-and-inorder-traversal.md)
+* [106. Construct Binary Tree from Inorder and Postorder Traversal](106.-construct-binary-tree-from-inorder-and-postorder-traversal.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
