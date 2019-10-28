@@ -100,6 +100,7 @@
 * [114. Flatten Binary Tree to Linked List](114.-flatten-binary-tree-to-linked-list.md)
 * [115. Distinct Subsequences.md](115.-distinct-subsequences.md)
 * [118. Pascal's Triangle](118.-pascals-triangle.md)
+* [120. Triangle](120.-triangle.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
