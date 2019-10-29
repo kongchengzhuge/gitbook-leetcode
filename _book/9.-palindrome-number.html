@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>657. Robot Return to Origin · GitBook</title>
+        <title>9. Palindrome Number · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="659.-split-array-into-consecutive-subsequences.html" />
+    <link rel="next" href="10.-regular-expression-matchinghard.html" />
     
     
-    <link rel="prev" href="654.-maximum-binary-tree.html" />
+    <link rel="prev" href="7.-reverse-integer.html" />
     
 
     </head>
@@ -180,7 +180,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="9.-palindrome-number.html">
+        <li class="chapter active" data-level="1.8" data-path="9.-palindrome-number.html">
             
                 <a href="9.-palindrome-number.html">
             
@@ -1467,7 +1467,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
+        <li class="chapter " data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
             
                 <a href="657.-robot-reaturn-to-origin.html">
             
@@ -1536,7 +1536,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >657. Robot Return to Origin</a>
+        <a href="." >9. Palindrome Number</a>
     </h1>
 </div>
 
@@ -1551,51 +1551,89 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="657-robot-return-to-origin">657. Robot Return to Origin</h1>
+                                <h1 id="9-palindrome-number">9. Palindrome Number</h1>
 <h2 id="problem-description">problem description</h2>
-<p>There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at (0, 0)</strong> after it completes its moves.</p>
-<p>The move sequence is represented by a string, and the character moves[i] represents its ith move. Valid moves are R (right), L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise, return false.</p>
-<p><strong>Note</strong>: The way that the robot is &quot;facing&quot; is irrelevant. &quot;R&quot; will always make the robot move to the right once, &quot;L&quot; will always make it move left, etc. Also, assume that the magnitude of the robot&apos;s movement is the same for each move.</p>
+<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code class="lang-text">Input: 121
+Output: true
+</code></pre>
+<p><strong>Example 2:</strong></p>
+<pre><code class="lang-text">Input: -121
+Output: false
+Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+</code></pre>
+<p><strong>Example 3:</strong></p>
+<pre><code class="lang-text">Input: 10
+Output: false
+Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+</code></pre>
+<p><strong>Follow up:</strong></p>
+<p>Coud you solve it without converting the integer to a string?</p>
 <h2 id="algorithm-thought">algorithm thought</h2>
-<p>&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x539F;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6700;&#x540E;&#x5224;&#x65AD;&#x80FD;&#x5426;&#x5230;&#x8FBE;&#x539F;&#x70B9;&#xFF0C;&#x4E00;&#x5171;4&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x7EDF;&#x8BA1;&#x8D77;&#x6765;&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x4E0A;&#x4E0B;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF0C;&#x5DE6;&#x53F3;&#x662F;&#x5426;&#x4E00;&#x6837;&#x5373;&#x53EF;</p>
+<p>&#x6700;&#x5F00;&#x59CB;&#x62FF;&#x5230;&#x8FD9;&#x9898;&#xFF0C;&#x53D1;&#x73B0;&#xFF0C;&#x8FD9;&#x4E0D;&#x662F;&#x8DDF;&#x7B2C;7&#x9898;&#x5F88;&#x7C7B;&#x4F3C;&#x5417;&#x3002;&#x76F4;&#x63A5;int2string&#xFF0C;&#x4F7F;&#x7528;string&#x6765;&#x5224;&#x65AD;&#x5C31;&#x662F;&#x4E2A;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x9898;&#x4E86;&#x3002;&#x4E0D;&#x5230;&#x4E00;&#x5206;&#x949F;&#x5199;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;&#x53D1;&#x73B0;description&#x91CC;&#x7684;follow up&#x8981;&#x6C42;&#x80FD;&#x4E0D;&#x80FD;&#x4E0D;&#x7528;string&#x7ED3;&#x9898;&#x3002;&#x4E8E;&#x662F;&#x53C8;&#x5F00;&#x59CB;&#x60F3;&#x5982;&#x4F55;&#x4E0D;&#x7528;string&#xFF0C;&#x5176;&#x5B9E;&#x5728;c++&#x4E2D;string&#x7684;&#x7ED3;&#x6784;&#x548C;vector&#x5F88;&#x50CF;&#xFF0C;&#x52A8;&#x6001;&#x6570;&#x7EC4;vector&#x4E5F;&#x5F88;&#x9002;&#x5408;&#x5B58;&#x50A8;&#x6570;&#x5B57;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x4F4D;&#x3002;</p>
 <h2 id="code">code</h2>
-<pre><code class="lang-text">class Solution {
-public:
-    bool judgeCircle(string moves) {
-        stack&lt;char&gt; lr;
-        stack&lt;char&gt; ud;
-        for(auto ch:moves){
-            if(ch==&apos;L&apos;){
-                if(lr.empty()||lr.top()==&apos;L&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;R&apos;){
-                if(lr.empty()||lr.top()==&apos;R&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;U&apos;){
-                if(ud.empty()||ud.top()==&apos;U&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
-            if(ch==&apos;D&apos;){
-                if(ud.empty()||ud.top()==&apos;D&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
+<pre><code class="lang-cpp"><span class="hljs-comment">//convert to string</span>
+<span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isPalindrome</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>{
+        <span class="hljs-keyword">if</span>(x&lt;<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-built_in">string</span> res=to_string(x);
+        <span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,right=res.size()<span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">while</span>(left&lt;right){
+            <span class="hljs-keyword">if</span>(res[left++]!=res[right--])
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
         }
-        return lr.empty()&amp;&amp;ud.empty();
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+};
+
+<span class="hljs-comment">//without converting to string</span>
+<span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isPalindrome</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>{
+        <span class="hljs-keyword">if</span>(x&lt;<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; res;
+        <span class="hljs-keyword">while</span>(x){
+            res.push_back(x%<span class="hljs-number">10</span>);
+            x/=<span class="hljs-number">10</span>;
+        }
+        <span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,right=res.size()<span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">while</span>(left&lt;right){
+            <span class="hljs-keyword">if</span>(res[left++]!=res[right--])
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+    }
+};
+
+<span class="hljs-comment">//improve menmory performance</span>
+<span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isPalindrome</span><span class="hljs-params">(<span class="hljs-keyword">int</span> x)</span> </span>{
+        <span class="hljs-keyword">if</span>(x&lt;<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        <span class="hljs-keyword">if</span>(x==<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; res(<span class="hljs-number">10</span>);
+        <span class="hljs-keyword">int</span> left=<span class="hljs-number">0</span>,right=<span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">while</span>(x){
+            right++;
+            res[right]=x%<span class="hljs-number">10</span>;
+            x/=<span class="hljs-number">10</span>;
+        }
+        <span class="hljs-keyword">while</span>(left&lt;right){
+            <span class="hljs-keyword">if</span>(res[left++]!=res[right--])
+                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
     }
 };
 </code></pre>
 <h2 id="algorithm-analysis">algorithm analysis</h2>
-<p>&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x65F6;&#x95F4;&#x662F;O(n)&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x62FF;&#x5230;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;&#x7C7B;&#x6BD4;&#x6210;&#x4E86;&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x52A8;&#x624B;&#x505A;&#x4E86;&#x3002;&#x5176;&#x5B9E;&#x62EC;&#x53F7;&#x5339;&#x914D;&#x6BD4;&#x8FD9;&#x4E2A;&#x591A;&#x4E86;&#x4E00;&#x70B9;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x800C;&#x8FD9;&#x91CC;&#x53EA;&#x8981;&#x7EDF;&#x8BA1;&#x6570;&#x5B57;&#x5373;&#x53EF;&#x3002;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;4&#x4E2A;&#x53D8;&#x91CF;&#x4F1A;&#x66F4;&#x5FEB;&#xFF0C;&#x76F4;&#x63A5;&#x7528;4&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x5B58;count&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x524D;&#x4E24;&#x4E2A;&#x7B97;&#x6CD5;&#x5176;&#x5B9E;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x90FD;&#x662F;O(n)&#x3002;&#x4F46;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x7B97;&#x6CD5;&#x66F4;&#x5FEB;&#x3002;&#x6211;&#x8BA4;&#x4E3A;&#x662F;&#x7531;&#x4E8E;&#x6BCF;&#x6B21;vector&#x8C03;&#x7528;push_back&#x540E;&#x6269;&#x5BB9;&#x5BFC;&#x81F4;&#x3002;&#x4E8E;&#x662F;&#x60F3;&#x4E86;&#x4E00;&#x4E0B;&#x80FD;&#x5426;&#x63D0;&#x524D;&#x77E5;&#x9053;vector&#x7684;size&#x3002;&#x9632;&#x6B62;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5206;&#x914D;&#x5185;&#x5B58;&#xFF0C;&#x60F3;&#x5230;input&#x90FD;&#x662F;int&#x7C7B;&#x578B;&#xFF0C;INT_MAX&#x53EA;&#x6709;10&#x4F4D;&#xFF0C;&#x6240;&#x4EE5;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E3A;10&#x7684;&#x6570;&#x7EC4;&#x8DB3;&#x591F;&#x4E86;&#x3002;&#x6539;&#x8FDB;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x53D1;&#x73B0;&#x6548;&#x679C;&#x4E0D;&#x662F;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x56E0;&#x4E3A;&#x5927;&#x5C0F;&#x4E3A;10&#x7684;&#x8BDD;&#xFF0C;&#x5176;&#x5B9E;&#x5185;&#x5B58;&#x5206;&#x914D;&#x6240;&#x6D88;&#x8017;&#x7684;&#x8D44;&#x6E90;&#x4E5F;&#x4E0D;&#x662F;&#x5F88;&#x591A;&#x3002;&#x4F46;&#x662F;&#x4E4B;&#x540E;&#x5F88;&#x591A;&#x9898;&#x76EE;&#xFF0C;&#x5982;&#x679C;&#x80FD;&#x51CF;&#x5C11;vector&#x6216;&#x8005;unordered_map&#x7684;&#x5185;&#x5B58;&#x52A0;&#x500D;&#x64CD;&#x4F5C;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x63D0;&#x524D;resize&#x597D;&#x5927;&#x5C0F;&#xFF0C;&#x5F88;&#x591A;&#x9898;&#x76EE;&#x4F1A;&#x5FEB;&#x5F88;&#x591A;&#x3002;</p>
 
                                 
                                 </section>
@@ -1623,12 +1661,12 @@ public:
 
             
                 
-                <a href="654.-maximum-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 654. Maximum Binary Tree">
+                <a href="7.-reverse-integer.html" class="navigation navigation-prev " aria-label="Previous page: 7. Reverse Integer">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="659.-split-array-into-consecutive-subsequences.html" class="navigation navigation-next " aria-label="Next page: 659. Split Array into Consecutive Subsequences">
+                <a href="10.-regular-expression-matchinghard.html" class="navigation navigation-next " aria-label="Next page: 10. Regular Expression Matching">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1639,7 +1677,7 @@ public:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"657. Robot Return to Origin","level":"1.107","depth":1,"next":{"title":"659. Split Array into Consecutive Subsequences","level":"1.108","depth":1,"path":"659.-split-array-into-consecutive-subsequences.md","ref":"659.-split-array-into-consecutive-subsequences.md","articles":[]},"previous":{"title":"654. Maximum Binary Tree","level":"1.106","depth":1,"path":"654.-maximum-binary-tree.md","ref":"654.-maximum-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"657.-robot-reaturn-to-origin.md","mtime":"2019-10-25T02:05:45.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"9. Palindrome Number","level":"1.8","depth":1,"next":{"title":"10. Regular Expression Matching","level":"1.9","depth":1,"path":"10.-regular-expression-matchinghard.md","ref":"10.-regular-expression-matchinghard.md","articles":[]},"previous":{"title":"7. Reverse Integer","level":"1.7","depth":1,"path":"7.-reverse-integer.md","ref":"7.-reverse-integer.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"9.-palindrome-number.md","mtime":"2019-10-25T02:05:45.479Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

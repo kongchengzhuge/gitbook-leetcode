@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>657. Robot Return to Origin · GitBook</title>
+        <title>47. Permutations II · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="659.-split-array-into-consecutive-subsequences.html" />
+    <link rel="next" href="48.-rotate-image.html" />
     
     
-    <link rel="prev" href="654.-maximum-binary-tree.html" />
+    <link rel="prev" href="46.-permutations.html" />
     
 
     </head>
@@ -570,7 +570,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.38" data-path="47.-permutations-ii.html">
+        <li class="chapter active" data-level="1.38" data-path="47.-permutations-ii.html">
             
                 <a href="47.-permutations-ii.html">
             
@@ -1467,7 +1467,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
+        <li class="chapter " data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
             
                 <a href="657.-robot-reaturn-to-origin.html">
             
@@ -1536,7 +1536,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >657. Robot Return to Origin</a>
+        <a href="." >47. Permutations II</a>
     </h1>
 </div>
 
@@ -1551,51 +1551,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="657-robot-return-to-origin">657. Robot Return to Origin</h1>
-<h2 id="problem-description">problem description</h2>
-<p>There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at (0, 0)</strong> after it completes its moves.</p>
-<p>The move sequence is represented by a string, and the character moves[i] represents its ith move. Valid moves are R (right), L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise, return false.</p>
-<p><strong>Note</strong>: The way that the robot is &quot;facing&quot; is irrelevant. &quot;R&quot; will always make the robot move to the right once, &quot;L&quot; will always make it move left, etc. Also, assume that the magnitude of the robot&apos;s movement is the same for each move.</p>
+                                <h1 id="47-permutations-ii">47. Permutations II</h1>
+<h2 id="problem-desctiption">problem desctiption</h2>
+<p>Given a collection of numbers that might contain duplicates, return all possible unique permutations.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-text">Input: [1,1,2]
+Output:
+[
+  [1,1,2],
+  [1,2,1],
+  [2,1,1]
+]
+</code></pre>
 <h2 id="algorithm-thought">algorithm thought</h2>
-<p>&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x539F;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6700;&#x540E;&#x5224;&#x65AD;&#x80FD;&#x5426;&#x5230;&#x8FBE;&#x539F;&#x70B9;&#xFF0C;&#x4E00;&#x5171;4&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x7EDF;&#x8BA1;&#x8D77;&#x6765;&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x4E0A;&#x4E0B;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF0C;&#x5DE6;&#x53F3;&#x662F;&#x5426;&#x4E00;&#x6837;&#x5373;&#x53EF;</p>
+<p>&#x8FD9;&#x9898;&#x548C;&#x4E0A;&#x4E00;&#x9898;&#x552F;&#x4E00;&#x7684;&#x533A;&#x522B;&#x5C31;&#x662F;&#x6709;&#x91CD;&#x590D;&#x6570;&#x5B57;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x533A;&#x522B;&#x5BF9;&#x7B97;&#x6CD5;&#x4F1A;&#x4EA7;&#x751F;&#x5F88;&#x5927;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x4E24;&#x4E2A;&#x4E00;&#x6837;&#x7684;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x8FD8;&#x662F;&#x7528;&#x4E0A;&#x9898;&#x7684;&#x505A;&#x6CD5;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x6700;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x591A;&#x4E00;&#x500D;&#x3002;&#x8FD9;&#x91CC;&#x7684;&#x95EE;&#x9898;&#x5C31;&#x5728;&#x4E8E;&#xFF0C;&#x5982;&#x679C;&#x627E;&#x5230;&#x91CD;&#x590D;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x7136;&#x540E;&#x89C4;&#x907F;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x8FD8;&#x662F;&#x7528;&#x9012;&#x5F52;&#x89E3;&#x51B3;&#x3002;&#x9996;&#x5148;&#x89E3;&#x51B3;&#x7B2C;&#x4E00;&#x4E2A;index&#x4E0A;&#x6570;&#x5B57;&#x7684;&#x6446;&#x653E;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x4E8E;&#x540E;&#x9762;&#x6240;&#x6709;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x5904;&#x7406;&#xFF0C;&#x76F4;&#x5230;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5982;&#x4F55;&#x627E;&#x5230;&#x91CD;&#x590D;&#x7684;&#x60C5;&#x51B5;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x7ED9;&#x7B2C;&#x4E00;&#x4E2A;index&#x6446;&#x653E;&#x4E4B;&#x540E;&#xFF0C;&#x8FDB;&#x884C;&#x7B2C;&#x4E00;&#x4E2A;index&#x66FF;&#x6362;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5224;&#x65AD;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x65F6;&#x5019;&#xFF0C;&#x66FF;&#x6362;&#x7684;&#x6570;&#x5B57;&#x548C;&#x5F53;&#x524D;&#x6570;&#x5B57;&#x4E00;&#x6837;&#xFF0C;&#x5C31;&#x4E0D;&#x66FF;&#x6362;&#xFF0C;&#x67E5;&#x770B;&#x4E0B;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x89E3;&#x51B3;&#x4E00;&#x4E2A;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E24;&#x6B21;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x7684;&#x95EE;&#x9898;&#x4E86;&#x3002;&#x6CE8;&#x610F;&#x8FD9;&#x91CC;&#x4E0D;&#x9700;&#x8981;&#x56DE;&#x6EAF;&#xFF0C;&#x8FD9;&#x662F;&#x548C;&#x4E0A;&#x4E00;&#x9898;&#x533A;&#x522B;&#x6700;&#x5927;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
 <h2 id="code">code</h2>
-<pre><code class="lang-text">class Solution {
-public:
-    bool judgeCircle(string moves) {
-        stack&lt;char&gt; lr;
-        stack&lt;char&gt; ud;
-        for(auto ch:moves){
-            if(ch==&apos;L&apos;){
-                if(lr.empty()||lr.top()==&apos;L&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;R&apos;){
-                if(lr.empty()||lr.top()==&apos;R&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;U&apos;){
-                if(ud.empty()||ud.top()==&apos;U&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
-            if(ch==&apos;D&apos;){
-                if(ud.empty()||ud.top()==&apos;D&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; permuteUnique(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; nums) {
+        sort(nums.begin(),nums.end());
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt; res;
+        recursion(nums, <span class="hljs-number">0</span>, nums.size(), res);
+        <span class="hljs-keyword">return</span> res;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">recursion</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; num, <span class="hljs-keyword">int</span> i, <span class="hljs-keyword">int</span> j, <span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; &gt; &amp;res)</span> </span>{
+        <span class="hljs-keyword">if</span> (i == j<span class="hljs-number">-1</span>) {
+            res.push_back(num);
+            <span class="hljs-keyword">return</span>;
         }
-        return lr.empty()&amp;&amp;ud.empty();
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> k = i; k &lt; j; k++) {
+            <span class="hljs-keyword">if</span> (i != k &amp;&amp; num[i] == num[k]) <span class="hljs-keyword">continue</span>;
+            swap(num[i], num[k]);
+            recursion(num, i+<span class="hljs-number">1</span>, j, res);
+        }
     }
 };
 </code></pre>
 <h2 id="algorithm-analysis">algorithm analysis</h2>
-<p>&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x65F6;&#x95F4;&#x662F;O(n)&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x62FF;&#x5230;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;&#x7C7B;&#x6BD4;&#x6210;&#x4E86;&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x52A8;&#x624B;&#x505A;&#x4E86;&#x3002;&#x5176;&#x5B9E;&#x62EC;&#x53F7;&#x5339;&#x914D;&#x6BD4;&#x8FD9;&#x4E2A;&#x591A;&#x4E86;&#x4E00;&#x70B9;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x800C;&#x8FD9;&#x91CC;&#x53EA;&#x8981;&#x7EDF;&#x8BA1;&#x6570;&#x5B57;&#x5373;&#x53EF;&#x3002;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;4&#x4E2A;&#x53D8;&#x91CF;&#x4F1A;&#x66F4;&#x5FEB;&#xFF0C;&#x76F4;&#x63A5;&#x7528;4&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x5B58;count&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x548C;&#x4E0A;&#x4E00;&#x9898;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x6837;&#x7684;&#x2014;&#x2014;O(n!)&#x3002;&#x4F46;&#x662F;&#x6700;&#x540E;&#x65F6;&#x95F4;&#x4F1A;&#x6BD4;&#x4E0A;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;&#x6162;&#x5F88;&#x591A;&#xFF0C;&#x539F;&#x56E0;&#x5C31;&#x5728;&#x4E8E;&#x8FD9;&#x91CC;&#x51FD;&#x6570;&#x53C2;&#x6570;num&#x6CA1;&#x7528;&#x5F15;&#x7528;&#x4F20;&#x9012;&#x3002;&#x6BCF;&#x6B21;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x590D;&#x5236;&#x6240;&#x6709;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x65F6;&#x95F4;&#x5F00;&#x9500;&#x4F1A;&#x5F88;&#x5927;&#x3002;</p>
 
                                 
                                 </section>
@@ -1623,12 +1617,12 @@ public:
 
             
                 
-                <a href="654.-maximum-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 654. Maximum Binary Tree">
+                <a href="46.-permutations.html" class="navigation navigation-prev " aria-label="Previous page: 46. Permutations">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="659.-split-array-into-consecutive-subsequences.html" class="navigation navigation-next " aria-label="Next page: 659. Split Array into Consecutive Subsequences">
+                <a href="48.-rotate-image.html" class="navigation navigation-next " aria-label="Next page: 48. Rotate Image">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1639,7 +1633,7 @@ public:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"657. Robot Return to Origin","level":"1.107","depth":1,"next":{"title":"659. Split Array into Consecutive Subsequences","level":"1.108","depth":1,"path":"659.-split-array-into-consecutive-subsequences.md","ref":"659.-split-array-into-consecutive-subsequences.md","articles":[]},"previous":{"title":"654. Maximum Binary Tree","level":"1.106","depth":1,"path":"654.-maximum-binary-tree.md","ref":"654.-maximum-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"657.-robot-reaturn-to-origin.md","mtime":"2019-10-25T02:05:45.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"47. Permutations II","level":"1.38","depth":1,"next":{"title":"48. Rotate Image","level":"1.39","depth":1,"path":"48.-rotate-image.md","ref":"48.-rotate-image.md","articles":[]},"previous":{"title":"46. Permutations","level":"1.37","depth":1,"path":"46.-permutations.md","ref":"46.-permutations.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"47.-permutations-ii.md","mtime":"2019-10-25T02:05:45.379Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

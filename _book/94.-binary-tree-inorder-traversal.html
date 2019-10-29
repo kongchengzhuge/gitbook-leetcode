@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>657. Robot Return to Origin · GitBook</title>
+        <title>94. Binary Tree Inorder Traversal · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="659.-split-array-into-consecutive-subsequences.html" />
+    <link rel="next" href="95.-unique-binary-search-trees-ii.html" />
     
     
-    <link rel="prev" href="654.-maximum-binary-tree.html" />
+    <link rel="prev" href="93.-restore-ip-addresses.html" />
     
 
     </head>
@@ -1103,7 +1103,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.79" data-path="94.-binary-tree-inorder-traversal.html">
+        <li class="chapter active" data-level="1.79" data-path="94.-binary-tree-inorder-traversal.html">
             
                 <a href="94.-binary-tree-inorder-traversal.html">
             
@@ -1467,7 +1467,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
+        <li class="chapter " data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
             
                 <a href="657.-robot-reaturn-to-origin.html">
             
@@ -1536,7 +1536,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >657. Robot Return to Origin</a>
+        <a href="." >94. Binary Tree Inorder Traversal</a>
     </h1>
 </div>
 
@@ -1551,51 +1551,116 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="657-robot-return-to-origin">657. Robot Return to Origin</h1>
-<h2 id="problem-description">problem description</h2>
-<p>There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at (0, 0)</strong> after it completes its moves.</p>
-<p>The move sequence is represented by a string, and the character moves[i] represents its ith move. Valid moves are R (right), L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise, return false.</p>
-<p><strong>Note</strong>: The way that the robot is &quot;facing&quot; is irrelevant. &quot;R&quot; will always make the robot move to the right once, &quot;L&quot; will always make it move left, etc. Also, assume that the magnitude of the robot&apos;s movement is the same for each move.</p>
+                                <h1 id="94-binary-tree-inorder-traversal">94. Binary Tree Inorder Traversal</h1>
+<h2 id="porblem-description">porblem description</h2>
+<p>Given a binary tree, return the <em>inorder</em> traversal of its nodes&apos; values.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-text">Input: [1,null,2,3]
+   1
+    \
+     2
+    /
+   3
+
+Output: [1,3,2]
+</code></pre>
+<p><strong>Follow up:</strong> Recursive solution is trivial, could you do it iteratively?</p>
 <h2 id="algorithm-thought">algorithm thought</h2>
-<p>&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x539F;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6700;&#x540E;&#x5224;&#x65AD;&#x80FD;&#x5426;&#x5230;&#x8FBE;&#x539F;&#x70B9;&#xFF0C;&#x4E00;&#x5171;4&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x7EDF;&#x8BA1;&#x8D77;&#x6765;&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x4E0A;&#x4E0B;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF0C;&#x5DE6;&#x53F3;&#x662F;&#x5426;&#x4E00;&#x6837;&#x5373;&#x53EF;</p>
+<p>&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x95EE;&#x9898;&#x3002;&#x8FD9;&#x79CD;&#x95EE;&#x9898;&#x7528;&#x9012;&#x5F52;&#x7684;&#x65B9;&#x6CD5;&#x662F;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x3002;&#x4F46;&#x662F;&#x8FD8;&#x662F;&#x8981;&#x77E5;&#x9053;&#x8FED;&#x4EE3;&#x7684;&#x5199;&#x6CD5;&#x3002;&#x6BD5;&#x7ADF;&#x5982;&#x679C;&#x8282;&#x70B9;&#x5F88;&#x591A;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x591A;&#x9012;&#x5F52;&#x51FD;&#x6570;&#xFF0C;&#x6808;&#x5F00;&#x9500;&#x4F1A;&#x5F88;&#x5927;&#x3002;</p>
+<p>&#x9012;&#x5F52;&#x5199;&#x6CD5;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x6309;&#x987A;&#x5E8F;&#x8BBF;&#x95EE;&#x5C31;&#x884C;&#xFF0C;&#x5BF9;&#x4E8E;&#x8FED;&#x4EE3;&#x5199;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x8981;&#x660E;&#x767D;&#x6211;&#x4EEC;&#x8BBF;&#x95EE;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x5148;&#x5DE6;&#xFF0C;&#x540E;&#x4E2D;&#x518D;&#x53F3;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x6808;&#x4FDD;&#x5B58;&#x4E2D;&#x95F4;&#x8282;&#x70B9;&#xFF0C;&#x6CA1;&#x78B0;&#x5230;&#x4E00;&#x4E2A;root&#x8282;&#x70B9;&#xFF0C;&#x987A;&#x5E8F;&#x5C06;&#x5DE6;&#x5B50;&#x6811;&#x4E00;&#x76F4;push&#x8FDB;&#x6808;&#xFF0C;&#x5230;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F39;&#x51FA;&#x9876;&#x4E0A;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x80FD;&#x8BBF;&#x95EE;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x6811;&#xFF0C;&#x628A;&#x5B83;&#x5F53;&#x505A;&#x4E00;&#x4E2A;root&#xFF0C;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x4E00;&#x904D;</p>
+<p>&#x7136;&#x540E;&#x53BB;&#x770B;&#x4E86;&#x4E00;&#x4E0B;discuss&#xFF0C;&#x771F;&#x7684;&#x662F;&#x53D1;&#x73B0;&#x6BCF;&#x6B21;&#x770B;&#x90FD;&#x4F1A;&#x53D1;&#x73B0;&#x5F88;&#x610F;&#x60F3;&#x4E0D;&#x5230;&#x7684;&#x7B97;&#x6CD5;&#x3002;&#x6BD4;&#x5982;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x53EF;&#x4EE5;&#x7528;morris traversal&#xFF0C;&#x53EA;&#x9700;&#x8981;O(1)&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x8FD8;&#x662F;&#x63A7;&#x5236;&#x5728;O(n)&#x3002;&#x6781;&#x5927;&#x7684;&#x51CF;&#x5C11;&#x4E86;&#x7A7A;&#x95F4;&#x3002;&#x8FD9;&#x91CC;&#x4E3B;&#x8981;&#x662F;&#x5229;&#x7528;&#x4E86;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x5927;&#x91CF;&#x7684;&#x7A7A;&#x6307;&#x9488;&#x3002;&#x524D;&#x9762;&#x95EE;&#x9898;&#x4F7F;&#x7528;&#x6808;&#x6765;&#x8F85;&#x52A9;&#x89E3;&#x51B3;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x8BBF;&#x95EE;&#x5230;&#x540E;&#x7EED;&#x8282;&#x70B9;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x80FD;&#x591F;&#x518D;&#x56DE;&#x5230;&#x6839;&#x8282;&#x70B9;&#xFF0C;&#x8FD9;&#x91CC;&#x7528;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x6307;&#x5411;&#x540E;&#x7EE7;&#x8282;&#x70B9;&#xFF0C;&#x65B9;&#x4FBF;&#x56DE;&#x5230;&#x524D;&#x9762;&#x3002;</p>
+<p>&#x6B65;&#x9AA4;&#x662F;&#xFF1A;</p>
+<ol>
+<li><p>&#x5982;&#x679C;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B69;&#x5B50;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x5E76;&#x5C06;&#x5176;&#x53F3;&#x5B69;&#x5B50;&#x4F5C;&#x4E3A;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x3002;</p>
+</li>
+<li><p>&#x5982;&#x679C;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B69;&#x5B50;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x5728;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x6811;&#x4E2D;&#x627E;&#x5230;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x5728;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x4E0B;&#x7684;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x3002;</p>
+<p>a) &#x5982;&#x679C;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B69;&#x5B50;&#x4E3A;&#x7A7A;&#xFF0C;&#x5C06;&#x5B83;&#x7684;&#x53F3;&#x5B69;&#x5B50;&#x8BBE;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x3002;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x66F4;&#x65B0;&#x4E3A;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B69;&#x5B50;&#x3002;</p>
+<p>b) &#x5982;&#x679C;&#x524D;&#x9A71;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B69;&#x5B50;&#x4E3A;&#x5F53;&#x524D;&#x8282;&#x70B9;&#xFF0C;&#x5C06;&#x5B83;&#x7684;&#x53F3;&#x5B69;&#x5B50;&#x91CD;&#x65B0;&#x8BBE;&#x4E3A;&#x7A7A;&#xFF08;&#x6062;&#x590D;&#x6811;&#x7684;&#x5F62;&#x72B6;&#xFF09;&#x3002;&#x8F93;&#x51FA;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x3002;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x66F4;&#x65B0;&#x4E3A;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B69;&#x5B50;&#x3002;</p>
+</li>
+<li><p>&#x91CD;&#x590D;&#x4EE5;&#x4E0A;1&#x3001;2&#x76F4;&#x5230;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x4E3A;&#x7A7A;&#x3002;</p>
+</li>
+</ol>
 <h2 id="code">code</h2>
-<pre><code class="lang-text">class Solution {
-public:
-    bool judgeCircle(string moves) {
-        stack&lt;char&gt; lr;
-        stack&lt;char&gt; ud;
-        for(auto ch:moves){
-            if(ch==&apos;L&apos;){
-                if(lr.empty()||lr.top()==&apos;L&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
+<pre><code class="lang-cpp"><span class="hljs-comment">/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */</span>
+<span class="hljs-comment">//&#x9012;&#x5F52;&#x5199;&#x6CD5;</span>
+<span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; res; 
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">inorder</span><span class="hljs-params">(TreeNode* root)</span>
+    </span>{
+        <span class="hljs-keyword">if</span>(root==<span class="hljs-literal">NULL</span>)
+            <span class="hljs-keyword">return</span>;
+        inorder(root-&gt;left);
+        res.push_back(root-&gt;val);
+        inorder(root-&gt;right);
+    }
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; inorderTraversal(TreeNode* root) {
+        inorder(root);
+        <span class="hljs-keyword">return</span> res;
+    }
+};
+
+
+<span class="hljs-comment">//&#x8FED;&#x4EE3;&#x5199;&#x6CD5;</span>
+<span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; inorderTraversal(TreeNode* root) {
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; res;
+        <span class="hljs-built_in">stack</span>&lt;TreeNode*&gt; st;
+        <span class="hljs-keyword">while</span>(root||!st.empty()){
+            <span class="hljs-keyword">while</span>(root){
+                st.push(root);
+                root=root-&gt;left;
             }
-            if(ch==&apos;R&apos;){
-                if(lr.empty()||lr.top()==&apos;R&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;U&apos;){
-                if(ud.empty()||ud.top()==&apos;U&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
-            if(ch==&apos;D&apos;){
-                if(ud.empty()||ud.top()==&apos;D&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
+            root=st.top();
+            st.pop();
+            res.push_back(root-&gt;val);
+            root=root-&gt;right;
+        }
+        <span class="hljs-keyword">return</span> res;
+    }
+};
+
+<span class="hljs-comment">//morris </span>
+lass Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; inorderTraversal(TreeNode* root) {
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt; res;       
+        TreeNode* prev=<span class="hljs-literal">NULL</span>;
+        <span class="hljs-keyword">while</span>(root){
+            <span class="hljs-keyword">if</span>(root-&gt;left==<span class="hljs-literal">NULL</span>){
+                res.push_back(root-&gt;val);
+                root=root-&gt;right;
+            }<span class="hljs-keyword">else</span>{
+                prev=root-&gt;left;
+                <span class="hljs-keyword">while</span>(prev-&gt;right&amp;&amp;prev-&gt;right!=root){
+                    prev=prev-&gt;right;
+                }
+                <span class="hljs-keyword">if</span>(prev-&gt;right==<span class="hljs-literal">NULL</span>){
+                    prev-&gt;right=root;
+                    root=root-&gt;left;
+                }<span class="hljs-keyword">else</span>{
+                    root=prev-&gt;right;
+                    prev-&gt;right=<span class="hljs-literal">NULL</span>;
+                    res.push_back(root-&gt;val);
+                    root=root-&gt;right;
+                }
             }
         }
-        return lr.empty()&amp;&amp;ud.empty();
+        <span class="hljs-keyword">return</span> res;
     }
 };
 </code></pre>
-<h2 id="algorithm-analysis">algorithm analysis</h2>
-<p>&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x65F6;&#x95F4;&#x662F;O(n)&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x62FF;&#x5230;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;&#x7C7B;&#x6BD4;&#x6210;&#x4E86;&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x52A8;&#x624B;&#x505A;&#x4E86;&#x3002;&#x5176;&#x5B9E;&#x62EC;&#x53F7;&#x5339;&#x914D;&#x6BD4;&#x8FD9;&#x4E2A;&#x591A;&#x4E86;&#x4E00;&#x70B9;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x800C;&#x8FD9;&#x91CC;&#x53EA;&#x8981;&#x7EDF;&#x8BA1;&#x6570;&#x5B57;&#x5373;&#x53EF;&#x3002;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;4&#x4E2A;&#x53D8;&#x91CF;&#x4F1A;&#x66F4;&#x5FEB;&#xFF0C;&#x76F4;&#x63A5;&#x7528;4&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x5B58;count&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x3002;</p>
+<h2 id="algorigthm-thought">algorigthm thought</h2>
+<p>&#x901A;&#x8FC7;&#x5206;&#x6790;&#x548C;LeetCode&#x6700;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x6765;&#x8BF4;&#xFF0C;&#x4E0A;&#x9762;3&#x4E2D;&#x65B9;&#x6CD5;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x5E94;&#x8BE5;&#x662F;&#x8D8A;&#x6765;&#x8D8A;&#x597D;&#x7684;&#x3002;&#x8FED;&#x4EE3;&#x5BF9;&#x4E8E;&#x9012;&#x5F52;&#x6765;&#x8BF4;&#xFF0C;&#x51CF;&#x5C11;&#x4E86;&#x51FD;&#x6570;&#x6808;&#x5F00;&#x9500;&#xFF0C;&#x6700;&#x540E;&#x7A7A;&#x95F4;&#x7528;&#x7684;&#x5C11;&#x4E00;&#x70B9;&#x3002;Morris&#x5BF9;&#x4E8E;&#x4E0A;&#x9762;&#x4E24;&#x4E2D;&#x6765;&#x8BF4;&#xFF0C;&#x53EA;&#x7528;&#x4E86;O(1)&#x7684;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x6700;&#x540E;&#x7A7A;&#x95F4;&#x662F;&#x7528;&#x7684;&#x6700;&#x5C11;&#x7684;&#x3002;</p>
 
                                 
                                 </section>
@@ -1623,12 +1688,12 @@ public:
 
             
                 
-                <a href="654.-maximum-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 654. Maximum Binary Tree">
+                <a href="93.-restore-ip-addresses.html" class="navigation navigation-prev " aria-label="Previous page: 93. Restore IP Addresses">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="659.-split-array-into-consecutive-subsequences.html" class="navigation navigation-next " aria-label="Next page: 659. Split Array into Consecutive Subsequences">
+                <a href="95.-unique-binary-search-trees-ii.html" class="navigation navigation-next " aria-label="Next page: 95. Unique Binary Search Trees II">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1639,7 +1704,7 @@ public:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"657. Robot Return to Origin","level":"1.107","depth":1,"next":{"title":"659. Split Array into Consecutive Subsequences","level":"1.108","depth":1,"path":"659.-split-array-into-consecutive-subsequences.md","ref":"659.-split-array-into-consecutive-subsequences.md","articles":[]},"previous":{"title":"654. Maximum Binary Tree","level":"1.106","depth":1,"path":"654.-maximum-binary-tree.md","ref":"654.-maximum-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"657.-robot-reaturn-to-origin.md","mtime":"2019-10-25T02:05:45.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"94. Binary Tree Inorder Traversal","level":"1.79","depth":1,"next":{"title":"95. Unique Binary Search Trees II","level":"1.80","depth":1,"path":"95.-unique-binary-search-trees-ii.md","ref":"95.-unique-binary-search-trees-ii.md","articles":[]},"previous":{"title":"93. Restore IP Addresses","level":"1.78","depth":1,"path":"93.-restore-ip-addresses.md","ref":"93.-restore-ip-addresses.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"94.-binary-tree-inorder-traversal.md","mtime":"2019-10-25T02:05:45.492Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

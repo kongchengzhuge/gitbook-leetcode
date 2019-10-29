@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>657. Robot Return to Origin · GitBook</title>
+        <title>33. Search in Rotated Sorted Array · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="659.-split-array-into-consecutive-subsequences.html" />
+    <link rel="next" href="34.-find-first-and-last-position-of-element-in-sorted-array-binary_search-and-and-low_bound-and-and.html" />
     
     
-    <link rel="prev" href="654.-maximum-binary-tree.html" />
+    <link rel="prev" href="32.-longest-valid-parentheses.html" />
     
 
     </head>
@@ -427,7 +427,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.27" data-path="33.-search-in-rotated-sorted-array.html">
+        <li class="chapter active" data-level="1.27" data-path="33.-search-in-rotated-sorted-array.html">
             
                 <a href="33.-search-in-rotated-sorted-array.html">
             
@@ -1467,7 +1467,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
+        <li class="chapter " data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
             
                 <a href="657.-robot-reaturn-to-origin.html">
             
@@ -1536,7 +1536,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >657. Robot Return to Origin</a>
+        <a href="." >33. Search in Rotated Sorted Array</a>
     </h1>
 </div>
 
@@ -1551,51 +1551,55 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="657-robot-return-to-origin">657. Robot Return to Origin</h1>
+                                <h1 id="33-search-in-rotated-sorted-array">33. Search in Rotated Sorted Array</h1>
 <h2 id="problem-description">problem description</h2>
-<p>There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at (0, 0)</strong> after it completes its moves.</p>
-<p>The move sequence is represented by a string, and the character moves[i] represents its ith move. Valid moves are R (right), L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise, return false.</p>
-<p><strong>Note</strong>: The way that the robot is &quot;facing&quot; is irrelevant. &quot;R&quot; will always make the robot move to the right once, &quot;L&quot; will always make it move left, etc. Also, assume that the magnitude of the robot&apos;s movement is the same for each move.</p>
+<p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.</p>
+<p>(i.e., <code>[0,1,2,4,5,6,7]</code> might become <code>[4,5,6,7,0,1,2]</code>).</p>
+<p>You are given a target value to search. If found in the array return its index, otherwise return <code>-1</code>.</p>
+<p>You may assume no duplicate exists in the array.</p>
+<p>Your algorithm&apos;s runtime complexity must be in the order of <em>O</em>(log <em>n</em>).</p>
+<p><strong>Example 1:</strong></p>
+<pre><code class="lang-text">Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+</code></pre>
+<p><strong>Example 2:</strong></p>
+<pre><code class="lang-text">Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
+</code></pre>
 <h2 id="algorithm-thought">algorithm thought</h2>
-<p>&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x539F;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6700;&#x540E;&#x5224;&#x65AD;&#x80FD;&#x5426;&#x5230;&#x8FBE;&#x539F;&#x70B9;&#xFF0C;&#x4E00;&#x5171;4&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x7EDF;&#x8BA1;&#x8D77;&#x6765;&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x4E0A;&#x4E0B;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF0C;&#x5DE6;&#x53F3;&#x662F;&#x5426;&#x4E00;&#x6837;&#x5373;&#x53EF;</p>
+<p>&#x5176;&#x5B9E;&#x662F;&#x4E8C;&#x5206;&#x67E5;&#x8003;&#x7684;&#x53D8;&#x79CD;&#xFF0C;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x7EC4;&#xFF0C;rotate&#x4E4B;&#x540E;&#x6570;&#x7EC4;&#x4E00;&#x534A;&#x8FD8;&#x662F;&#x987A;&#x5E8F;&#x7684;&#x3002;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x53EA;&#x8981;&#x786E;&#x5B9A;&#x4E00;&#x534A;&#x662F;&#x5426;&#x6EE1;&#x8DB3; &#x5C31;&#x53EF;&#x4EE5;&#x6392;&#x9664;&#x53E6;&#x4E00;&#x534A;&#x3002;&#x6211;&#x4EEC;&#x627E;&#x5230;&#x6709;&#x5E8F;&#x7684;&#x4E00;&#x534A;&#x4E4B;&#x540E;&#xFF0C;&#x5224;&#x65AD;target&#x662F;&#x5426;&#x671F;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5C31;&#x8FDB;&#x5165;&#x8FD9;&#x4E00;&#x534A;&#x67E5;&#x627E;&#x5426;&#x5219;&#x8FDB;&#x5165;&#x53E6;&#x4E00;&#x534A;&#x3002;&#x8FD9;&#x6837;&#x6BCF;&#x6B21;&#x6392;&#x9664;&#x4E00;&#x534A;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x5C31;&#x662F;O(nlgn)</p>
 <h2 id="code">code</h2>
 <pre><code class="lang-text">class Solution {
 public:
-    bool judgeCircle(string moves) {
-        stack&lt;char&gt; lr;
-        stack&lt;char&gt; ud;
-        for(auto ch:moves){
-            if(ch==&apos;L&apos;){
-                if(lr.empty()||lr.top()==&apos;L&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
+    int search(vector&lt;int&gt;&amp; nums, int target) {
+        int left=0;int right=nums.size()-1;
+        int mid;
+        while(left&lt;=right){
+           // cout&lt;&lt;left&lt;&lt;&apos; &apos;&lt;&lt;right&lt;&lt;&apos;;&apos;;
+            mid=(left+right)/2;
+            if(nums[mid]==target)
+                return mid;
+            if(nums[mid]&lt;nums[right]){
+                if(target&gt;nums[mid]&amp;&amp;target&lt;=nums[right])
+                    left=mid+1;
+                else
+                    right=mid-1;
             }
-            if(ch==&apos;R&apos;){
-                if(lr.empty()||lr.top()==&apos;R&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
+            else{
+                if(target&gt;=nums[left]&amp;&amp;target&lt;nums[mid])
+                    right=mid;
+                else
+                    left=mid+1;
             }
-            if(ch==&apos;U&apos;){
-                if(ud.empty()||ud.top()==&apos;U&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
-            if(ch==&apos;D&apos;){
-                if(ud.empty()||ud.top()==&apos;D&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
+
         }
-        return lr.empty()&amp;&amp;ud.empty();
+        return -1;
+
     }
 };
 </code></pre>
-<h2 id="algorithm-analysis">algorithm analysis</h2>
-<p>&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x65F6;&#x95F4;&#x662F;O(n)&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x62FF;&#x5230;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;&#x7C7B;&#x6BD4;&#x6210;&#x4E86;&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x52A8;&#x624B;&#x505A;&#x4E86;&#x3002;&#x5176;&#x5B9E;&#x62EC;&#x53F7;&#x5339;&#x914D;&#x6BD4;&#x8FD9;&#x4E2A;&#x591A;&#x4E86;&#x4E00;&#x70B9;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x800C;&#x8FD9;&#x91CC;&#x53EA;&#x8981;&#x7EDF;&#x8BA1;&#x6570;&#x5B57;&#x5373;&#x53EF;&#x3002;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;4&#x4E2A;&#x53D8;&#x91CF;&#x4F1A;&#x66F4;&#x5FEB;&#xFF0C;&#x76F4;&#x63A5;&#x7528;4&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x5B58;count&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x3002;</p>
+<h2 id="algorithm-thought">algorithm thought</h2>
+<p>&#x867D;&#x7136;&#x5FAA;&#x73AF;&#x4E2D;&#x95F4;&#x5904;&#x7406;&#x6BD4;&#x4E8C;&#x5206;&#x67E5;&#x627E;&#x591A;&#x5F88;&#x591A;&#x6B65;&#x9AA4;&#xFF0C;&#x4F46;&#x662F;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x8FD8;&#x662F;O(1)&#x7684;&#x3002;&#x6BCF;&#x6B21;&#x6392;&#x9664;&#x4E00;&#x534A;&#xFF0C;&#x6700;&#x540E;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;O(nlgn)</p>
 
                                 
                                 </section>
@@ -1623,12 +1627,12 @@ public:
 
             
                 
-                <a href="654.-maximum-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 654. Maximum Binary Tree">
+                <a href="32.-longest-valid-parentheses.html" class="navigation navigation-prev " aria-label="Previous page: 32. Longest Valid Parentheses">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="659.-split-array-into-consecutive-subsequences.html" class="navigation navigation-next " aria-label="Next page: 659. Split Array into Consecutive Subsequences">
+                <a href="34.-find-first-and-last-position-of-element-in-sorted-array-binary_search-and-and-low_bound-and-and.html" class="navigation navigation-next " aria-label="Next page: 34. Find First and Last Position of Element in Sorted Array">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1639,7 +1643,7 @@ public:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"657. Robot Return to Origin","level":"1.107","depth":1,"next":{"title":"659. Split Array into Consecutive Subsequences","level":"1.108","depth":1,"path":"659.-split-array-into-consecutive-subsequences.md","ref":"659.-split-array-into-consecutive-subsequences.md","articles":[]},"previous":{"title":"654. Maximum Binary Tree","level":"1.106","depth":1,"path":"654.-maximum-binary-tree.md","ref":"654.-maximum-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"657.-robot-reaturn-to-origin.md","mtime":"2019-10-25T02:05:45.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"33. Search in Rotated Sorted Array","level":"1.27","depth":1,"next":{"title":"34. Find First and Last Position of Element in Sorted Array","level":"1.28","depth":1,"path":"34.-find-first-and-last-position-of-element-in-sorted-array-binary_search-and-and-low_bound-and-and.md","ref":"34.-find-first-and-last-position-of-element-in-sorted-array-binary_search-and-and-low_bound-and-and.md","articles":[]},"previous":{"title":"32. Longest Valid Parentheses","level":"1.26","depth":1,"path":"32.-longest-valid-parentheses.md","ref":"32.-longest-valid-parentheses.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"33.-search-in-rotated-sorted-array.md","mtime":"2019-10-25T02:05:45.352Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

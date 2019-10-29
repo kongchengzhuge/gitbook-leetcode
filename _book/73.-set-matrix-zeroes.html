@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>657. Robot Return to Origin · GitBook</title>
+        <title>73. Set Matrix Zeroes · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="659.-split-array-into-consecutive-subsequences.html" />
+    <link rel="next" href="74.-search-a-2d-matrix.html" />
     
     
-    <link rel="prev" href="654.-maximum-binary-tree.html" />
+    <link rel="prev" href="72.-edit-distance.html" />
     
 
     </head>
@@ -843,7 +843,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.59" data-path="73.-set-matrix-zeroes.html">
+        <li class="chapter active" data-level="1.59" data-path="73.-set-matrix-zeroes.html">
             
                 <a href="73.-set-matrix-zeroes.html">
             
@@ -1467,7 +1467,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
+        <li class="chapter " data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
             
                 <a href="657.-robot-reaturn-to-origin.html">
             
@@ -1536,7 +1536,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >657. Robot Return to Origin</a>
+        <a href="." >73. Set Matrix Zeroes</a>
     </h1>
 </div>
 
@@ -1551,51 +1551,94 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="657-robot-return-to-origin">657. Robot Return to Origin</h1>
+                                <h1 id="73-set-matrix-zeroes">73. Set Matrix Zeroes</h1>
 <h2 id="problem-description">problem description</h2>
-<p>There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at (0, 0)</strong> after it completes its moves.</p>
-<p>The move sequence is represented by a string, and the character moves[i] represents its ith move. Valid moves are R (right), L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise, return false.</p>
-<p><strong>Note</strong>: The way that the robot is &quot;facing&quot; is irrelevant. &quot;R&quot; will always make the robot move to the right once, &quot;L&quot; will always make it move left, etc. Also, assume that the magnitude of the robot&apos;s movement is the same for each move.</p>
+<p>Given a <em>m</em> x <em>n</em> matrix, if an element is 0, set its entire row and column to 0. Do it <a href="https://en.wikipedia.org/wiki/In-place_algorithm" target="_blank"><strong>in-place</strong></a>.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code class="lang-text">Input: 
+[
+  [1,1,1],
+  [1,0,1],
+  [1,1,1]
+]
+Output: 
+[
+  [1,0,1],
+  [0,0,0],
+  [1,0,1]
+]
+</code></pre>
+<p><strong>Example 2:</strong></p>
+<pre><code class="lang-text">Input: 
+[
+  [0,1,2,0],
+  [3,4,5,2],
+  [1,3,1,5]
+]
+Output: 
+[
+  [0,0,0,0],
+  [0,4,5,0],
+  [0,3,1,0]
+]
+</code></pre>
 <h2 id="algorithm-thought">algorithm thought</h2>
-<p>&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x539F;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6700;&#x540E;&#x5224;&#x65AD;&#x80FD;&#x5426;&#x5230;&#x8FBE;&#x539F;&#x70B9;&#xFF0C;&#x4E00;&#x5171;4&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x7EDF;&#x8BA1;&#x8D77;&#x6765;&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x4E0A;&#x4E0B;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF0C;&#x5DE6;&#x53F3;&#x662F;&#x5426;&#x4E00;&#x6837;&#x5373;&#x53EF;</p>
+<p>&#x8FD9;&#x4E2A;&#x9898;&#x76EE;&#x4E0D;&#x662F;&#x5F88;&#x96BE;&#xFF0C;&#x4F46;&#x662F;LeetCode&#x9650;&#x5236;&#x4E86;&#x6211;&#x4EEC;&#xFF0C;&#x5E0C;&#x671B;&#x6211;&#x4EEC;&#x4F7F;&#x7528;O(1)&#x7684;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x7136;&#x540E;DO IT IN-PLACE&#x3002;&#x4E8E;&#x662F;&#x6211;&#x5C06;&#x7B2C;&#x4E00;&#x884C;&#x548C;&#x7B2C;&#x4E00;&#x5217;&#x5B9A;&#x4E49;&#x4E3A;&#x6807;&#x5FD7;&#x4F4D;&#xFF0C;&#x4ECE;2&#x884C;2&#x5217;&#x5F00;&#x59CB;&#x904D;&#x5386;&#xFF0C;&#x5982;&#x679C;&#x4E3A;0&#xFF0C;&#x5C06;&#x4E3A;0&#x7684;&#x90A3;&#x884C;&#x548C;&#x5217;&#x7684;&#x7B2C;&#x4E00;&#x4F4D;&#x8BBE;&#x7F6E;&#x4E3A;0&#x6807;&#x5FD7;&#x4F4D;&#x3002;&#x4E4B;&#x540E;&#x518D;&#x6B21;&#x904D;&#x5386;&#x4E00;&#x904D;&#x7B2C;&#x4E00;&#x884C;&#x548C;&#x7B2C;&#x4E00;&#x5217;&#xFF0C;&#x5C06;&#x6709;&#x6807;&#x5FD7;&#x4F4D;&#x7684;&#x90A3;&#x4E00;&#x884C;&#x6216;&#x8005;&#x4E00;&#x5217;&#x7F6E;&#x4E3A;&#x96F6;</p>
 <h2 id="code">code</h2>
-<pre><code class="lang-text">class Solution {
-public:
-    bool judgeCircle(string moves) {
-        stack&lt;char&gt; lr;
-        stack&lt;char&gt; ud;
-        for(auto ch:moves){
-            if(ch==&apos;L&apos;){
-                if(lr.empty()||lr.top()==&apos;L&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setZeroes</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&gt;&amp; matrix)</span> </span>{
+        <span class="hljs-keyword">if</span>(matrix.size()==<span class="hljs-number">0</span>||matrix[<span class="hljs-number">0</span>].size()==<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> ;
+        <span class="hljs-keyword">bool</span> row=<span class="hljs-literal">false</span>,col=<span class="hljs-literal">false</span>;
+        <span class="hljs-comment">//&#x5224;&#x65AD;&#x7B2C;&#x4E00;&#x5217;&#x662F;&#x5426;&#x6709;0</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;matrix.size();++i)
+            <span class="hljs-keyword">if</span>(matrix[i][<span class="hljs-number">0</span>]==<span class="hljs-number">0</span>){
+                row=<span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
             }
-            if(ch==&apos;R&apos;){
-                if(lr.empty()||lr.top()==&apos;R&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
+        <span class="hljs-comment">//&#x5224;&#x65AD;&#x7B2C;&#x4E00;&#x884C;&#x662F;&#x5426;&#x6709;0</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;matrix[<span class="hljs-number">0</span>].size();++i)
+            <span class="hljs-keyword">if</span>(matrix[<span class="hljs-number">0</span>][i]==<span class="hljs-number">0</span>){
+                col=<span class="hljs-literal">true</span>;
+                <span class="hljs-keyword">break</span>;
             }
-            if(ch==&apos;U&apos;){
-                if(ud.empty()||ud.top()==&apos;U&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
-            if(ch==&apos;D&apos;){
-                if(ud.empty()||ud.top()==&apos;D&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
+        <span class="hljs-keyword">if</span>(row||col)
+            matrix[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]=<span class="hljs-number">0</span>;
+        <span class="hljs-comment">//&#x5982;&#x679C;&#x67D0;&#x4F4D;&#x662F;0&#xFF0C;&#x5C06;&#x5BF9;&#x5E94;&#x7684;&#x7B2C;&#x4E00;&#x884C;&#x7B2C;&#x4E00;&#x5217;&#x90FD;&#x8BBE;&#x7F6E;&#x4E3A;0</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;matrix.size();++i){
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;matrix[<span class="hljs-number">0</span>].size();++j){
+                <span class="hljs-keyword">if</span>(matrix[i][j]==<span class="hljs-number">0</span>){
+                    matrix[<span class="hljs-number">0</span>][j]=<span class="hljs-number">0</span>;
+                    matrix[i][<span class="hljs-number">0</span>]=<span class="hljs-number">0</span>;
+                }
             }
         }
-        return lr.empty()&amp;&amp;ud.empty();
+        <span class="hljs-comment">//&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x5217;&#x672B;&#x4F4D;&#x662F;0&#xFF0C;&#x5C06;&#x8FD9;&#x4E00;&#x884C;&#x6240;&#x6709;&#x7684;&#x8BBE;&#x7F6E;&#x4E3A;0</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;matrix.size();++i){
+            <span class="hljs-keyword">if</span>(matrix[i][<span class="hljs-number">0</span>]==<span class="hljs-number">0</span>){
+                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;matrix[<span class="hljs-number">0</span>].size();++j){
+                    matrix[i][j]=<span class="hljs-number">0</span>;
+                }
+            }
+            <span class="hljs-keyword">if</span>(row)
+                matrix[i][<span class="hljs-number">0</span>]=<span class="hljs-number">0</span>;
+        }
+        <span class="hljs-comment">//&#x5982;&#x679C;&#x7B2C;&#x4E00;&#x884C;&#x672B;&#x4F4D;&#x662F;0&#xFF0C;&#x5C06;&#x8FD9;&#x4E00;&#x5217;&#x6240;&#x6709;&#x7684;&#x8BBE;&#x7F6E;&#x4E3A;0</span>
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;matrix[<span class="hljs-number">0</span>].size();++j){
+            <span class="hljs-keyword">if</span>(matrix[<span class="hljs-number">0</span>][j]==<span class="hljs-number">0</span>){
+                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;matrix.size();++i){
+                    matrix[i][j]=<span class="hljs-number">0</span>;
+                }
+            }
+            <span class="hljs-keyword">if</span>(col)
+                matrix[<span class="hljs-number">0</span>][j]=<span class="hljs-number">0</span>;
+        }
     }
 };
 </code></pre>
 <h2 id="algorithm-analysis">algorithm analysis</h2>
-<p>&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x65F6;&#x95F4;&#x662F;O(n)&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x62FF;&#x5230;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;&#x7C7B;&#x6BD4;&#x6210;&#x4E86;&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x52A8;&#x624B;&#x505A;&#x4E86;&#x3002;&#x5176;&#x5B9E;&#x62EC;&#x53F7;&#x5339;&#x914D;&#x6BD4;&#x8FD9;&#x4E2A;&#x591A;&#x4E86;&#x4E00;&#x70B9;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x800C;&#x8FD9;&#x91CC;&#x53EA;&#x8981;&#x7EDF;&#x8BA1;&#x6570;&#x5B57;&#x5373;&#x53EF;&#x3002;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;4&#x4E2A;&#x53D8;&#x91CF;&#x4F1A;&#x66F4;&#x5FEB;&#xFF0C;&#x76F4;&#x63A5;&#x7528;4&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x5B58;count&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x8FD9;&#x7C7B;&#x9898;&#x76EE;&#xFF0C;&#x65E0;&#x8BBA;&#x4F60;&#x7B97;&#x6CD5;&#x591A;&#x4E48;&#x5DE7;&#x5999;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x90FD;&#x4F1A;&#x662F;O(n&#xB2;)&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x91CC;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x88AB;&#x9650;&#x5236;&#x5230;&#x4E86;O(1)&#xFF0C;&#x6709;&#x5F88;&#x5927;&#x63D0;&#x5347;&#x3002;</p>
 
                                 
                                 </section>
@@ -1623,12 +1666,12 @@ public:
 
             
                 
-                <a href="654.-maximum-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 654. Maximum Binary Tree">
+                <a href="72.-edit-distance.html" class="navigation navigation-prev " aria-label="Previous page: 72. Edit Distance">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="659.-split-array-into-consecutive-subsequences.html" class="navigation navigation-next " aria-label="Next page: 659. Split Array into Consecutive Subsequences">
+                <a href="74.-search-a-2d-matrix.html" class="navigation navigation-next " aria-label="Next page: 74. Search a 2D Matrix">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1639,7 +1682,7 @@ public:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"657. Robot Return to Origin","level":"1.107","depth":1,"next":{"title":"659. Split Array into Consecutive Subsequences","level":"1.108","depth":1,"path":"659.-split-array-into-consecutive-subsequences.md","ref":"659.-split-array-into-consecutive-subsequences.md","articles":[]},"previous":{"title":"654. Maximum Binary Tree","level":"1.106","depth":1,"path":"654.-maximum-binary-tree.md","ref":"654.-maximum-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"657.-robot-reaturn-to-origin.md","mtime":"2019-10-25T02:05:45.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"73. Set Matrix Zeroes","level":"1.59","depth":1,"next":{"title":"74. Search a 2D Matrix","level":"1.60","depth":1,"path":"74.-search-a-2d-matrix.md","ref":"74.-search-a-2d-matrix.md","articles":[]},"previous":{"title":"72. Edit Distance","level":"1.58","depth":1,"path":"72.-edit-distance.md","ref":"72.-edit-distance.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"73.-set-matrix-zeroes.md","mtime":"2019-10-25T02:05:45.442Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>657. Robot Return to Origin · GitBook</title>
+        <title>44. Wildcard Matching · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="659.-split-array-into-consecutive-subsequences.html" />
+    <link rel="next" href="45.-jump-game-ii.html" />
     
     
-    <link rel="prev" href="654.-maximum-binary-tree.html" />
+    <link rel="prev" href="42.-trapping-rain-water.html" />
     
 
     </head>
@@ -531,7 +531,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.35" data-path="44.-wildcard-matching.html">
+        <li class="chapter active" data-level="1.35" data-path="44.-wildcard-matching.html">
             
                 <a href="44.-wildcard-matching.html">
             
@@ -1467,7 +1467,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
+        <li class="chapter " data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
             
                 <a href="657.-robot-reaturn-to-origin.html">
             
@@ -1536,7 +1536,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >657. Robot Return to Origin</a>
+        <a href="." >44. Wildcard Matching</a>
     </h1>
 </div>
 
@@ -1551,51 +1551,84 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="657-robot-return-to-origin">657. Robot Return to Origin</h1>
+                                <h1 id="44-wildcard-matching">44. Wildcard Matching</h1>
 <h2 id="problem-description">problem description</h2>
-<p>There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at (0, 0)</strong> after it completes its moves.</p>
-<p>The move sequence is represented by a string, and the character moves[i] represents its ith move. Valid moves are R (right), L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise, return false.</p>
-<p><strong>Note</strong>: The way that the robot is &quot;facing&quot; is irrelevant. &quot;R&quot; will always make the robot move to the right once, &quot;L&quot; will always make it move left, etc. Also, assume that the magnitude of the robot&apos;s movement is the same for each move.</p>
+<p>Given an input string (<code>s</code>) and a pattern (<code>p</code>), implement wildcard pattern matching with support for <code>&apos;?&apos;</code> and <code>&apos;*&apos;</code>.</p>
+<pre><code class="lang-text">&apos;?&apos; Matches any single character.
+&apos;*&apos; Matches any sequence of characters (including the empty sequence).
+</code></pre>
+<p>The matching should cover the <strong>entire</strong> input string (not partial).</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li><code>s</code> could be empty and contains only lowercase letters <code>a-z</code>.</li>
+<li><code>p</code> could be empty and contains only lowercase letters <code>a-z</code>, and characters like <code>?</code> or <code>*</code>.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<pre><code class="lang-text">Input:
+s = &quot;aa&quot;
+p = &quot;a&quot;
+Output: false
+Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.
+</code></pre>
+<p><strong>Example 2:</strong></p>
+<pre><code class="lang-text">Input:
+s = &quot;aa&quot;
+p = &quot;*&quot;
+Output: true
+Explanation: &apos;*&apos; matches any sequence.
+</code></pre>
+<p><strong>Example 3:</strong></p>
+<pre><code class="lang-text">Input:
+s = &quot;cb&quot;
+p = &quot;?a&quot;
+Output: false
+Explanation: &apos;?&apos; matches &apos;c&apos;, but the second letter is &apos;a&apos;, which does not match &apos;b&apos;.
+</code></pre>
+<p><strong>Example 4:</strong></p>
+<pre><code class="lang-text">Input:
+s = &quot;adceb&quot;
+p = &quot;*a*b&quot;
+Output: true
+Explanation: The first &apos;*&apos; matches the empty sequence, while the second &apos;*&apos; matches the substring &quot;dce&quot;.
+</code></pre>
+<p><strong>Example 5:</strong></p>
+<pre><code class="lang-text">Input:
+s = &quot;acdcb&quot;
+p = &quot;a*c?b&quot;
+Output: false
+</code></pre>
 <h2 id="algorithm-thought">algorithm thought</h2>
-<p>&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x539F;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6700;&#x540E;&#x5224;&#x65AD;&#x80FD;&#x5426;&#x5230;&#x8FBE;&#x539F;&#x70B9;&#xFF0C;&#x4E00;&#x5171;4&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x7EDF;&#x8BA1;&#x8D77;&#x6765;&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x4E0A;&#x4E0B;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF0C;&#x5DE6;&#x53F3;&#x662F;&#x5426;&#x4E00;&#x6837;&#x5373;&#x53EF;</p>
+<p>&#x8FD9;&#x9898;&#x5F88;&#x4E4B;&#x524D;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5F88;&#x50CF;&#xFF0C;&#x5176;&#x5B9E;&#x8FD8;&#x7B80;&#x5355;&#x4E00;&#x70B9;&#x3002;&#x4F7F;&#x7528;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#x4FDD;&#x5B58;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#xFF0C;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x3002;&#x53EF;&#x4EE5;&#x501F;&#x9274;&#x524D;&#x9762;&#x52A8;&#x6001;&#x89C4;&#x5212;&#x9898;&#x76EE;&#x7684;&#x89E3;&#x7B54;&#x3002;&#x8FD9;&#x91CC;&#x7684;?&#x5176;&#x5B9E;&#x548C;&#x4E4B;&#x524D;&#x7684;.&#x4E00;&#x6837;&#x3002;&#x8FD9;&#x91CC;&#x7684;*&#x6BD4;&#x4E4B;&#x524D;&#x7684;*&#x66F4;&#x52A0;&#x52A0;&#x5355;</p>
 <h2 id="code">code</h2>
-<pre><code class="lang-text">class Solution {
-public:
-    bool judgeCircle(string moves) {
-        stack&lt;char&gt; lr;
-        stack&lt;char&gt; ud;
-        for(auto ch:moves){
-            if(ch==&apos;L&apos;){
-                if(lr.empty()||lr.top()==&apos;L&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">bool</span> <span class="hljs-title">isMatch</span><span class="hljs-params">(<span class="hljs-built_in">string</span> s, <span class="hljs-built_in">string</span> p)</span> </span>{
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">bool</span>&gt;(p.size()+<span class="hljs-number">1</span>,<span class="hljs-literal">false</span>);
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=p.size();++i)
+            <span class="hljs-keyword">if</span>(p[i<span class="hljs-number">-1</span>]==<span class="hljs-string">&apos;*&apos;</span>){
+                res[<span class="hljs-number">0</span>][i]=<span class="hljs-literal">true</span>;
             }
-            if(ch==&apos;R&apos;){
-                if(lr.empty()||lr.top()==&apos;R&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;U&apos;){
-                if(ud.empty()||ud.top()==&apos;U&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
-            if(ch==&apos;D&apos;){
-                if(ud.empty()||ud.top()==&apos;D&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
+            <span class="hljs-keyword">else</span>
+                <span class="hljs-keyword">break</span>;
+        res[<span class="hljs-number">0</span>][<span class="hljs-number">0</span>]=<span class="hljs-literal">true</span>;
+
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">1</span>;i&lt;=s.size();++i){
+            <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;j&lt;=p.size();++j){
+                <span class="hljs-keyword">if</span>(p[j<span class="hljs-number">-1</span>]==<span class="hljs-string">&apos;?&apos;</span>||s[i<span class="hljs-number">-1</span>]==p[j<span class="hljs-number">-1</span>]){
+                   res[i][j]=res[i<span class="hljs-number">-1</span>][j<span class="hljs-number">-1</span>];
+                }
+                <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(p[j<span class="hljs-number">-1</span>]==<span class="hljs-string">&apos;*&apos;</span>){
+                    <span class="hljs-keyword">if</span>(res[i<span class="hljs-number">-1</span>][j]||res[i][j<span class="hljs-number">-1</span>])     
+                        res[i][j]=<span class="hljs-literal">true</span>;
+                }
             }
         }
-        return lr.empty()&amp;&amp;ud.empty();
+        <span class="hljs-keyword">return</span> res[s.size()][p.size()];
     }
 };
 </code></pre>
 <h2 id="algorithm-analysis">algorithm analysis</h2>
-<p>&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x65F6;&#x95F4;&#x662F;O(n)&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x62FF;&#x5230;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;&#x7C7B;&#x6BD4;&#x6210;&#x4E86;&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x52A8;&#x624B;&#x505A;&#x4E86;&#x3002;&#x5176;&#x5B9E;&#x62EC;&#x53F7;&#x5339;&#x914D;&#x6BD4;&#x8FD9;&#x4E2A;&#x591A;&#x4E86;&#x4E00;&#x70B9;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x800C;&#x8FD9;&#x91CC;&#x53EA;&#x8981;&#x7EDF;&#x8BA1;&#x6570;&#x5B57;&#x5373;&#x53EF;&#x3002;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;4&#x4E2A;&#x53D8;&#x91CF;&#x4F1A;&#x66F4;&#x5FEB;&#xFF0C;&#x76F4;&#x63A5;&#x7528;4&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x5B58;count&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;O(n&#xB2;)</p>
 
                                 
                                 </section>
@@ -1623,12 +1656,12 @@ public:
 
             
                 
-                <a href="654.-maximum-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 654. Maximum Binary Tree">
+                <a href="42.-trapping-rain-water.html" class="navigation navigation-prev " aria-label="Previous page: 42. Trapping Rain Water">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="659.-split-array-into-consecutive-subsequences.html" class="navigation navigation-next " aria-label="Next page: 659. Split Array into Consecutive Subsequences">
+                <a href="45.-jump-game-ii.html" class="navigation navigation-next " aria-label="Next page: 45. Jump Game II">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1639,7 +1672,7 @@ public:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"657. Robot Return to Origin","level":"1.107","depth":1,"next":{"title":"659. Split Array into Consecutive Subsequences","level":"1.108","depth":1,"path":"659.-split-array-into-consecutive-subsequences.md","ref":"659.-split-array-into-consecutive-subsequences.md","articles":[]},"previous":{"title":"654. Maximum Binary Tree","level":"1.106","depth":1,"path":"654.-maximum-binary-tree.md","ref":"654.-maximum-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"657.-robot-reaturn-to-origin.md","mtime":"2019-10-25T02:05:45.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"44. Wildcard Matching","level":"1.35","depth":1,"next":{"title":"45. Jump Game II","level":"1.36","depth":1,"path":"45.-jump-game-ii.md","ref":"45.-jump-game-ii.md","articles":[]},"previous":{"title":"42. Trapping Rain Water","level":"1.34","depth":1,"path":"42.-trapping-rain-water.md","ref":"42.-trapping-rain-water.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"44.-wildcard-matching.md","mtime":"2019-10-25T02:05:45.371Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>657. Robot Return to Origin · GitBook</title>
+        <title>28. Implement strStr() · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="">
+        <meta name="description" content="KMP算法">
         <meta name="generator" content="GitBook 3.2.3">
         
         
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="659.-split-array-into-consecutive-subsequences.html" />
+    <link rel="next" href="29.-divide-two-integers.html" />
     
     
-    <link rel="prev" href="654.-maximum-binary-tree.html" />
+    <link rel="prev" href="27.-remove-element.html" />
     
 
     </head>
@@ -375,7 +375,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.23" data-path="28.-implement-strstrkmp-suan-fa.html">
+        <li class="chapter active" data-level="1.23" data-path="28.-implement-strstrkmp-suan-fa.html">
             
                 <a href="28.-implement-strstrkmp-suan-fa.html">
             
@@ -1467,7 +1467,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
+        <li class="chapter " data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
             
                 <a href="657.-robot-reaturn-to-origin.html">
             
@@ -1536,7 +1536,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >657. Robot Return to Origin</a>
+        <a href="." >28. Implement strStr()</a>
     </h1>
 </div>
 
@@ -1551,51 +1551,94 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="657-robot-return-to-origin">657. Robot Return to Origin</h1>
+                                <h1 id="28-implement-strstr">28. Implement strStr()</h1>
 <h2 id="problem-description">problem description</h2>
-<p>There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at (0, 0)</strong> after it completes its moves.</p>
-<p>The move sequence is represented by a string, and the character moves[i] represents its ith move. Valid moves are R (right), L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise, return false.</p>
-<p><strong>Note</strong>: The way that the robot is &quot;facing&quot; is irrelevant. &quot;R&quot; will always make the robot move to the right once, &quot;L&quot; will always make it move left, etc. Also, assume that the magnitude of the robot&apos;s movement is the same for each move.</p>
+<p>Implement <a href="http://www.cplusplus.com/reference/cstring/strstr/" target="_blank">strStr()</a>.</p>
+<p>Return the index of the first occurrence of needle in haystack, or <strong>-1</strong> if needle is not part of haystack.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code class="lang-text">Input: haystack = &quot;hello&quot;, needle = &quot;ll&quot;
+Output: 2
+</code></pre>
+<p><strong>Example 2:</strong></p>
+<pre><code class="lang-text">Input: haystack = &quot;aaaaa&quot;, needle = &quot;bba&quot;
+Output: -1
+</code></pre>
+<p><strong>Clarification:</strong></p>
+<p>What should we return when <code>needle</code> is an empty string? This is a great question to ask during an interview.</p>
+<p>For the purpose of this problem, we will return 0 when <code>needle</code> is an empty string. This is consistent to C&apos;s <a href="http://www.cplusplus.com/reference/cstring/strstr/" target="_blank">strstr()</a> and Java&apos;s <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html#indexOf%28java.lang.String%29" target="_blank">indexOf()</a>.</p>
 <h2 id="algorithm-thought">algorithm thought</h2>
-<p>&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x539F;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6700;&#x540E;&#x5224;&#x65AD;&#x80FD;&#x5426;&#x5230;&#x8FBE;&#x539F;&#x70B9;&#xFF0C;&#x4E00;&#x5171;4&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x7EDF;&#x8BA1;&#x8D77;&#x6765;&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x4E0A;&#x4E0B;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF0C;&#x5DE6;&#x53F3;&#x662F;&#x5426;&#x4E00;&#x6837;&#x5373;&#x53EF;</p>
+<p>&#x8FD9;&#x9898;&#x5176;&#x5B9E;&#x66B4;&#x529B;&#x53D1;&#x5C31;&#x80FD;&#x89E3;&#x51B3;&#xFF0C;&#x5C31;&#x662F;&#x5355;&#x7EAF;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x5339;&#x914D;&#x3002;&#x4F46;&#x662F;&#x592A;&#x6162;&#x4E86;&#xFF0C;&#x5386;&#x53F2;&#x4E0A;&#x4E5F;&#x6709;&#x51E0;&#x4F4D;&#x5927;&#x4F6C;&#x89C9;&#x5F97;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x5F88;&#x6162;&#x3002;&#x5E76;&#x4E14;&#x786E;&#x5B9E;&#x6709;&#x53EF;&#x4EE5;&#x4F18;&#x5316;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E00;&#x4E2A;&#x4EBA;&#x6765;&#x5339;&#x914D;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x6210;&#x529F;&#x4E86;&#x5F88;&#x591A;&#x6B21;&#x4E4B;&#x540E;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x5339;&#x914D;&#x5931;&#x8D25;&#x4E86;&#xFF0C;&#x4ED6;&#x4E0D;&#x4F1A;&#x524D;&#x8FDB;&#x4E00;&#x4F4D;&#x91CD;&#x65B0;&#x6765;&#x3002;&#x800C;&#x662F;&#x8DF3;&#x8FC7;&#x5DF2;&#x77E5;&#x7684;&#x4E0D;&#x5339;&#x914D;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<p>&#x6211;&#x63CF;&#x8FF0;&#x80AF;&#x5B9A;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#x61C2;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x770B;&#x8FD9;&#x4E2A;&#x7F51;&#x7AD9;&#x7684;&#x4F8B;&#x5B50;:<a href="https://subetter.com/algorithm/kmp-algorithm.html" target="_blank">https://subetter.com/algorithm/kmp-algorithm.html</a></p>
+<p>kmp&#x6700;&#x5173;&#x952E;&#x7684;&#x662F;&#x6784;&#x5EFA;next&#x6570;&#x7EC4;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x5F88;&#x597D;&#x5339;&#x914D;&#x4E86;&#x3002;</p>
 <h2 id="code">code</h2>
-<pre><code class="lang-text">class Solution {
-public:
-    bool judgeCircle(string moves) {
-        stack&lt;char&gt; lr;
-        stack&lt;char&gt; ud;
-        for(auto ch:moves){
-            if(ch==&apos;L&apos;){
-                if(lr.empty()||lr.top()==&apos;L&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;R&apos;){
-                if(lr.empty()||lr.top()==&apos;R&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;U&apos;){
-                if(ud.empty()||ud.top()==&apos;U&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
-            if(ch==&apos;D&apos;){
-                if(ud.empty()||ud.top()==&apos;D&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
+<pre><code class="lang-cpp"><span class="hljs-comment">//&#x6700;&#x539F;&#x59CB;&#x7684;&#x66B4;&#x529B;&#x6CD5;</span>
+<span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">strStr</span><span class="hljs-params">(<span class="hljs-built_in">string</span> haystack, <span class="hljs-built_in">string</span> needle)</span> </span>{
+        <span class="hljs-keyword">if</span>(needle.size()==<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-keyword">if</span>(haystack.size()==<span class="hljs-number">0</span>){
+                <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+        }
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;haystack.length();++i){
+            <span class="hljs-keyword">if</span>(haystack[i]==needle[<span class="hljs-number">0</span>]){
+                <span class="hljs-keyword">int</span> j=<span class="hljs-number">1</span>;
+                <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> k=i+<span class="hljs-number">1</span>;j&lt;needle.length()&amp;&amp;k&lt;haystack.length();++j,++k){
+                    <span class="hljs-keyword">if</span>(haystack[k]!=needle[j])
+                        <span class="hljs-keyword">break</span>;
+                }
+                <span class="hljs-keyword">if</span>(j==needle.length())
+                    <span class="hljs-keyword">return</span> i;
             }
         }
-        return lr.empty()&amp;&amp;ud.empty();
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    }
+};
+
+<span class="hljs-comment">//kmp&#x7B97;&#x6CD5;</span>
+<span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">strStr</span><span class="hljs-params">(<span class="hljs-built_in">string</span> haystack, <span class="hljs-built_in">string</span> needle)</span> </span>{
+        <span class="hljs-keyword">if</span>(needle.size()==<span class="hljs-number">0</span>)
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
+        <span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;next(needle.size(),<span class="hljs-number">-1</span>);    
+        getnext(next,needle);
+        <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> j=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">while</span>(i&lt;<span class="hljs-keyword">int</span>(haystack.size())&amp;&amp;j&lt;<span class="hljs-keyword">int</span>(needle.size())){
+            <span class="hljs-comment">//cout&lt;&lt;i&lt;&lt;&apos;-&apos;&lt;&lt;j&lt;&lt;&apos; &apos;;</span>
+            <span class="hljs-keyword">if</span>(j==<span class="hljs-number">-1</span>||needle[j]==haystack[i]){
+                ++i;++j;
+            }<span class="hljs-keyword">else</span>
+                j=next[j];
+            <span class="hljs-comment">//cout&lt;&lt;j&lt;&lt;needle.size();</span>
+        }
+        <span class="hljs-keyword">if</span>(j==needle.size()){
+            <span class="hljs-keyword">return</span> i-needle.size();
+        }
+        <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;
+    }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">getnext</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp;next,<span class="hljs-built_in">string</span>&amp;needle)</span></span>{
+        <span class="hljs-keyword">int</span> size=needle.size()<span class="hljs-number">-1</span>;
+        <span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">int</span> j=<span class="hljs-number">-1</span>;
+        <span class="hljs-comment">//next[0]=-1;</span>
+        <span class="hljs-keyword">while</span>(i&lt;size){
+            <span class="hljs-keyword">if</span>(j==<span class="hljs-number">-1</span>||needle[i]==needle[j]){
+                i++;j++;
+                <span class="hljs-keyword">if</span>(needle[i]!=needle[j])
+                    next[i]=j;
+                <span class="hljs-keyword">else</span>
+                    next[i]=next[j];
+            }<span class="hljs-keyword">else</span>
+                j=next[j];
+        }
     }
 };
 </code></pre>
 <h2 id="algorithm-analysis">algorithm analysis</h2>
-<p>&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x65F6;&#x95F4;&#x662F;O(n)&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x62FF;&#x5230;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;&#x7C7B;&#x6BD4;&#x6210;&#x4E86;&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x52A8;&#x624B;&#x505A;&#x4E86;&#x3002;&#x5176;&#x5B9E;&#x62EC;&#x53F7;&#x5339;&#x914D;&#x6BD4;&#x8FD9;&#x4E2A;&#x591A;&#x4E86;&#x4E00;&#x70B9;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x800C;&#x8FD9;&#x91CC;&#x53EA;&#x8981;&#x7EDF;&#x8BA1;&#x6570;&#x5B57;&#x5373;&#x53EF;&#x3002;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;4&#x4E2A;&#x53D8;&#x91CF;&#x4F1A;&#x66F4;&#x5FEB;&#xFF0C;&#x76F4;&#x63A5;&#x7528;4&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x5B58;count&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x66B4;&#x529B;&#x6CD5;&#x4E24;&#x4E2A;&#x5FAA;&#x73AF;&#xFF0C;heystack&#x5B57;&#x7B26;&#x4E32;&#x957F;m&#xFF0C;needle&#x5B57;&#x7B26;&#x4E32;&#x957F;n&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;O(nm)</p>
+<p>kmp&#x7B97;&#x6CD5;&#xFF0C;&#x6C42;&#x51FA;next&#x6570;&#x7EC4;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;O(n),&#x5339;&#x914D;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;O(m)&#xFF0C;m&gt;n&#x3002;&#x6700;&#x540E;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x662F;O(m)</p>
 
                                 
                                 </section>
@@ -1623,12 +1666,12 @@ public:
 
             
                 
-                <a href="654.-maximum-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 654. Maximum Binary Tree">
+                <a href="27.-remove-element.html" class="navigation navigation-prev " aria-label="Previous page: 27. Remove Element">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="659.-split-array-into-consecutive-subsequences.html" class="navigation navigation-next " aria-label="Next page: 659. Split Array into Consecutive Subsequences">
+                <a href="29.-divide-two-integers.html" class="navigation navigation-next " aria-label="Next page: 29. Divide Two Integers">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1639,7 +1682,7 @@ public:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"657. Robot Return to Origin","level":"1.107","depth":1,"next":{"title":"659. Split Array into Consecutive Subsequences","level":"1.108","depth":1,"path":"659.-split-array-into-consecutive-subsequences.md","ref":"659.-split-array-into-consecutive-subsequences.md","articles":[]},"previous":{"title":"654. Maximum Binary Tree","level":"1.106","depth":1,"path":"654.-maximum-binary-tree.md","ref":"654.-maximum-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"657.-robot-reaturn-to-origin.md","mtime":"2019-10-25T02:05:45.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"KMP算法","title":"28. Implement strStr()","level":"1.23","depth":1,"next":{"title":"29. Divide Two Integers","level":"1.24","depth":1,"path":"29.-divide-two-integers.md","ref":"29.-divide-two-integers.md","articles":[]},"previous":{"title":"27. Remove Element","level":"1.22","depth":1,"path":"27.-remove-element.md","ref":"27.-remove-element.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"28.-implement-strstrkmp-suan-fa.md","mtime":"2019-10-25T02:05:45.341Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

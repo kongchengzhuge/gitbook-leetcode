@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>657. Robot Return to Origin · GitBook</title>
+        <title>84. Largest Rectangle in Histogram · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="659.-split-array-into-consecutive-subsequences.html" />
+    <link rel="next" href="85.-maximal-rectangle.html" />
     
     
-    <link rel="prev" href="654.-maximum-binary-tree.html" />
+    <link rel="prev" href="83.-remove-duplicates-from-sorted-list.html" />
     
 
     </head>
@@ -986,7 +986,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.70" data-path="84.-largest-rectangle-in-histogram.html">
+        <li class="chapter active" data-level="1.70" data-path="84.-largest-rectangle-in-histogram.html">
             
                 <a href="84.-largest-rectangle-in-histogram.html">
             
@@ -1467,7 +1467,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
+        <li class="chapter " data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
             
                 <a href="657.-robot-reaturn-to-origin.html">
             
@@ -1536,7 +1536,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >657. Robot Return to Origin</a>
+        <a href="." >84. Largest Rectangle in Histogram</a>
     </h1>
 </div>
 
@@ -1551,51 +1551,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="657-robot-return-to-origin">657. Robot Return to Origin</h1>
+                                <h1 id="84-largest-rectangle-in-histogram">84. Largest Rectangle in Histogram</h1>
 <h2 id="problem-description">problem description</h2>
-<p>There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at (0, 0)</strong> after it completes its moves.</p>
-<p>The move sequence is represented by a string, and the character moves[i] represents its ith move. Valid moves are R (right), L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise, return false.</p>
-<p><strong>Note</strong>: The way that the robot is &quot;facing&quot; is irrelevant. &quot;R&quot; will always make the robot move to the right once, &quot;L&quot; will always make it move left, etc. Also, assume that the magnitude of the robot&apos;s movement is the same for each move.</p>
+<p>Given <em>n</em> non-negative integers representing the histogram&apos;s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.</p>
+<p><img src="https://assets.leetcode.com/uploads/2018/10/12/histogram.png" alt=""><br>Above is a histogram where width of each bar is 1, given height = <code>[2,1,5,6,2,3]</code>.</p>
+<p><img src="https://assets.leetcode.com/uploads/2018/10/12/histogram_area.png" alt=""><br>The largest rectangle is shown in the shaded area, which has area = <code>10</code> unit.</p>
+<p><strong>Example:</strong></p>
+<pre><code class="lang-text">Input: [2,1,5,6,2,3]
+Output: 10
+</code></pre>
 <h2 id="algorithm-thought">algorithm thought</h2>
-<p>&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x539F;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6700;&#x540E;&#x5224;&#x65AD;&#x80FD;&#x5426;&#x5230;&#x8FBE;&#x539F;&#x70B9;&#xFF0C;&#x4E00;&#x5171;4&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x7EDF;&#x8BA1;&#x8D77;&#x6765;&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x4E0A;&#x4E0B;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF0C;&#x5DE6;&#x53F3;&#x662F;&#x5426;&#x4E00;&#x6837;&#x5373;&#x53EF;</p>
+<p>&#x4E00;&#x6B21;&#x904D;&#x5386;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF0C;&#x4F7F;&#x7528;&#x6808;&#x6765;&#x8F85;&#x52A9;&#x89E3;&#x51B3;&#x3002;&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#xFF0C;&#x5982;&#x679C;&#x78B0;&#x5230;&#x987A;&#x5E8F;&#x9012;&#x589E;&#xFF0C;&#x5C31;&#x5C06;&#x5F53;&#x524D;&#x6570;&#x5B57;&#x538B;&#x5165;&#x6808;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x5F53;&#x524D;height&#x5C0F;&#x4E8E;&#x6808;&#x9876;&#x503C;&#xFF0C;&#x5C31;&#x5C06;&#x6808;&#x9876;&#x503C;&#x5F39;&#x51FA;&#xFF0C;&#x5E76;&#x8BA1;&#x7B97;&#x4EE5;&#x5F39;&#x51FA;&#x503C;&#x4E3A;&#x9AD8;&#x5EA6;&#x7684;&#x77E9;&#x5F62;&#x9762;&#x79EF;&#x5927;&#x5C0F;&#x3002;&#x8FD9;&#x91CC;&#x5173;&#x952E;&#x662F;&#x5982;&#x4F55;&#x53BB;&#x8BA1;&#x7B97;&#x77E9;&#x5F62;&#x7684;&#x5BBD;&#xFF0C;&#x6839;&#x636E;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x5F53;&#x524D;&#x6808;&#x9876;&#x7684;&#x503C;&#x80AF;&#x5B9A;&#x4EE3;&#x8868;&#x7684;&#x662F;&#x5F53;&#x524D;&#x8BBF;&#x95EE;&#x8FC7;&#x7684;&#xFF0C;&#x5269;&#x4E0B;&#x7684;&#x6700;&#x5927;&#x503C;&#xFF0C;&#x56E0;&#x4E3A;&#x6BD4;&#x4ED6;&#x66F4;&#x5927;&#x7684;&#x503C;&#x5728;&#x4E4B;&#x524D;&#x80AF;&#x5B9A;&#x88AB;&#x5F39;&#x51FA;&#x8BA1;&#x7B97;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x5F53;&#x524D;index&#x51CF;&#x53BB;&#x5F53;&#x524D;&#x6808;&#x9876;&#x4EE3;&#x8868;&#x7684;index&#xFF0C;&#x5C31;&#x80FD;&#x8868;&#x793A;&#x77E9;&#x5F62;&#x7684;&#x5BBD;&#x4E86;&#x3002;</p>
 <h2 id="code">code</h2>
-<pre><code class="lang-text">class Solution {
-public:
-    bool judgeCircle(string moves) {
-        stack&lt;char&gt; lr;
-        stack&lt;char&gt; ud;
-        for(auto ch:moves){
-            if(ch==&apos;L&apos;){
-                if(lr.empty()||lr.top()==&apos;L&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;R&apos;){
-                if(lr.empty()||lr.top()==&apos;R&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;U&apos;){
-                if(ud.empty()||ud.top()==&apos;U&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
-            if(ch==&apos;D&apos;){
-                if(ud.empty()||ud.top()==&apos;D&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
+<pre><code class="lang-cpp"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">largestRectangleArea</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; heights)</span> </span>{
+        <span class="hljs-built_in">stack</span>&lt;<span class="hljs-keyword">int</span>&gt; st;
+        heights.push_back(<span class="hljs-number">0</span>);
+        <span class="hljs-keyword">int</span> res=<span class="hljs-number">0</span>;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;heights.size();){
+            <span class="hljs-keyword">if</span>((st.empty())||heights[i]&gt;=heights[st.top()]){
+                st.push(i);
+                ++i;
+            }<span class="hljs-keyword">else</span>{
+                <span class="hljs-keyword">int</span> t=st.top();st.pop();
+                <span class="hljs-keyword">if</span>(st.empty()){
+                    <span class="hljs-comment">//cout&lt;&lt;heights[t]&lt;&lt;&apos;-&apos;&lt;&lt;i&lt;&lt;&apos; &apos;;</span>
+                    res=max(res,heights[t]*i);
+                }<span class="hljs-keyword">else</span>{
+                    <span class="hljs-comment">//cout&lt;&lt;heights[t]&lt;&lt;&apos;-&apos;&lt;&lt;i-st.top()-1&lt;&lt;&apos; &apos;;</span>
+                    res=max(res,heights[t]*(i-st.top()<span class="hljs-number">-1</span>));
+                }
             }
         }
-        return lr.empty()&amp;&amp;ud.empty();
+        <span class="hljs-keyword">return</span> res;
     }
 };
 </code></pre>
 <h2 id="algorithm-analysis">algorithm analysis</h2>
-<p>&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x65F6;&#x95F4;&#x662F;O(n)&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x62FF;&#x5230;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;&#x7C7B;&#x6BD4;&#x6210;&#x4E86;&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x52A8;&#x624B;&#x505A;&#x4E86;&#x3002;&#x5176;&#x5B9E;&#x62EC;&#x53F7;&#x5339;&#x914D;&#x6BD4;&#x8FD9;&#x4E2A;&#x591A;&#x4E86;&#x4E00;&#x70B9;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x800C;&#x8FD9;&#x91CC;&#x53EA;&#x8981;&#x7EDF;&#x8BA1;&#x6570;&#x5B57;&#x5373;&#x53EF;&#x3002;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;4&#x4E2A;&#x53D8;&#x91CF;&#x4F1A;&#x66F4;&#x5FEB;&#xFF0C;&#x76F4;&#x63A5;&#x7528;4&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x5B58;count&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x4F7F;&#x7528;&#x6808;&#xFF0C;&#x4E00;&#x6B21;&#x904D;&#x5386;&#x5F97;&#x5230;&#x7ED3;&#x679C;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;O(n)</p>
 
                                 
                                 </section>
@@ -1623,12 +1617,12 @@ public:
 
             
                 
-                <a href="654.-maximum-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 654. Maximum Binary Tree">
+                <a href="83.-remove-duplicates-from-sorted-list.html" class="navigation navigation-prev " aria-label="Previous page: 83. Remove Duplicates from Sorted List">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="659.-split-array-into-consecutive-subsequences.html" class="navigation navigation-next " aria-label="Next page: 659. Split Array into Consecutive Subsequences">
+                <a href="85.-maximal-rectangle.html" class="navigation navigation-next " aria-label="Next page: 85. Maximal Rectangle">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1639,7 +1633,7 @@ public:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"657. Robot Return to Origin","level":"1.107","depth":1,"next":{"title":"659. Split Array into Consecutive Subsequences","level":"1.108","depth":1,"path":"659.-split-array-into-consecutive-subsequences.md","ref":"659.-split-array-into-consecutive-subsequences.md","articles":[]},"previous":{"title":"654. Maximum Binary Tree","level":"1.106","depth":1,"path":"654.-maximum-binary-tree.md","ref":"654.-maximum-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"657.-robot-reaturn-to-origin.md","mtime":"2019-10-25T02:05:45.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"84. Largest Rectangle in Histogram","level":"1.70","depth":1,"next":{"title":"85. Maximal Rectangle","level":"1.71","depth":1,"path":"85.-maximal-rectangle.md","ref":"85.-maximal-rectangle.md","articles":[]},"previous":{"title":"83. Remove Duplicates from Sorted List","level":"1.69","depth":1,"path":"83.-remove-duplicates-from-sorted-list.md","ref":"83.-remove-duplicates-from-sorted-list.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"84.-largest-rectangle-in-histogram.md","mtime":"2019-10-25T02:05:45.469Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>

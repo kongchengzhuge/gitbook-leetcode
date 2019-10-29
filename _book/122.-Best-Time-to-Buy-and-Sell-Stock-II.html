@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>657. Robot Return to Origin · GitBook</title>
+        <title>122. Best Time to Buy and Sell Stock II · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="659.-split-array-into-consecutive-subsequences.html" />
+    <link rel="next" href="123.-Best-Time-to-Buy-and-Sell-Stock-III.html" />
     
     
-    <link rel="prev" href="654.-maximum-binary-tree.html" />
+    <link rel="prev" href="121.-Best-Time-to-Buy-and-Sell-Stock.html" />
     
 
     </head>
@@ -1415,7 +1415,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.103" data-path="122.-Best-Time-to-Buy-and-Sell-Stock-II.html">
+        <li class="chapter active" data-level="1.103" data-path="122.-Best-Time-to-Buy-and-Sell-Stock-II.html">
             
                 <a href="122.-Best-Time-to-Buy-and-Sell-Stock-II.html">
             
@@ -1467,7 +1467,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
+        <li class="chapter " data-level="1.107" data-path="657.-robot-reaturn-to-origin.html">
             
                 <a href="657.-robot-reaturn-to-origin.html">
             
@@ -1536,7 +1536,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >657. Robot Return to Origin</a>
+        <a href="." >122. Best Time to Buy and Sell Stock II</a>
     </h1>
 </div>
 
@@ -1551,51 +1551,54 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="657-robot-return-to-origin">657. Robot Return to Origin</h1>
+                                <h1 id="122-best-time-to-buy-and-sell-stock-ii">122. Best Time to Buy and Sell Stock II</h1>
 <h2 id="problem-description">problem description</h2>
-<p>There is a robot starting at position (0, 0), the origin, on a 2D plane. Given a sequence of its moves, judge if this robot <strong>ends up at (0, 0)</strong> after it completes its moves.</p>
-<p>The move sequence is represented by a string, and the character moves[i] represents its ith move. Valid moves are R (right), L (left), U (up), and D (down). If the robot returns to the origin after it finishes all of its moves, return true. Otherwise, return false.</p>
-<p><strong>Note</strong>: The way that the robot is &quot;facing&quot; is irrelevant. &quot;R&quot; will always make the robot move to the right once, &quot;L&quot; will always make it move left, etc. Also, assume that the magnitude of the robot&apos;s movement is the same for each move.</p>
+<p>Say you have an array for which the ith element is the price of a given stock on day i.</p>
+<p>Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).</p>
+<p>Note: You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).</p>
+<p><strong>Example 1:</strong></p>
+<pre><code class="lang-text">Input: [7,1,5,3,6,4]
+Output: 7
+Explanation: Buy on day 2 (price = 1) and sell on day 3 (price = 5), profit = 5-1 = 4.
+             Then buy on day 4 (price = 3) and sell on day 5 (price = 6), profit = 6-3 = 3.
+</code></pre>
+<p><strong>Example 2:</strong></p>
+<pre><code class="lang-text">Input: [1,2,3,4,5]
+Output: 4
+Explanation: Buy on day 1 (price = 1) and sell on day 5 (price = 5), profit = 5-1 = 4.
+             Note that you cannot buy on day 1, buy on day 2 and sell them later, as you are
+             engaging multiple transactions at the same time. You must sell before buying again.
+</code></pre>
+<p><strong>Example 3:</strong></p>
+<pre><code class="lang-text">Input: [7,6,4,3,1]
+Output: 0
+Explanation: In this case, no transaction is done, i.e. max profit = 0.
+</code></pre>
 <h2 id="algorithm-thought">algorithm thought</h2>
-<p>&#x673A;&#x5668;&#x4EBA;&#x4ECE;&#x539F;&#x70B9;&#x51FA;&#x53D1;&#xFF0C;&#x6700;&#x540E;&#x5224;&#x65AD;&#x80FD;&#x5426;&#x5230;&#x8FBE;&#x539F;&#x70B9;&#xFF0C;&#x4E00;&#x5171;4&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x7684;&#x64CD;&#x4F5C;&#x7EDF;&#x8BA1;&#x8D77;&#x6765;&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x4E0A;&#x4E0B;&#x662F;&#x5426;&#x4E00;&#x6837;&#xFF0C;&#x5DE6;&#x53F3;&#x662F;&#x5426;&#x4E00;&#x6837;&#x5373;&#x53EF;</p>
+<p>&#x53EF;&#x4EE5;&#x501F;&#x52A9;&#x4E4B;&#x524D;&#x53EA;&#x80FD;&#x4E70;&#x4E00;&#x6B21;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x53EA;&#x662F;&#x8FD9;&#x91CC;&#x662F;&#x80FD;&#x4E70;&#x5F88;&#x591A;&#x6B21;&#x3002;&#x53EA;&#x8981;&#x6709;&#x5229;&#x6DA6;&#xFF0C;&#x6211;&#x4EEC;&#x90FD;&#x52A0;&#x4E0A;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x5BF9;&#x4E8E;&#x4E0B;&#x4E00;&#x5929;&#x4EF7;&#x683C;&#x6BD4;&#x4ECA;&#x5929;&#x4F4E;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x80AF;&#x5B9A;&#x8981;&#x4E0B;&#x4E00;&#x5929;&#x4E70;&#x800C;&#x4E0D;&#x662F;&#x8FD9;&#x4E00;&#x5929;&#x9AD8;&#x4EF7;&#x4E70;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x628A;&#x4E70;&#x8FDB;&#x7684;&#x4EF7;&#x683C;&#x6539;&#x6210;&#x4E0B;&#x4E00;&#x5929;&#x7684;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4E0B;&#x4E00;&#x5929;&#x7684;&#x4EF7;&#x683C;&#x6BD4;&#x4ECA;&#x5929;&#x9AD8;&#xFF0C;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x628A;&#x5229;&#x6DA6;&#x52A0;&#x4E0A;&#x3002;&#x4F46;&#x662F;&#x5982;&#x679C;&#x4E4B;&#x540E;&#x4EF7;&#x683C;&#x6301;&#x7EED;&#x8D70;&#x9AD8;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x4E0D;&#x52A0;&#x5229;&#x6DA6;&#xFF0C;&#x4E00;&#x76F4;&#x5F80;&#x540E;&#x770B;&#xFF0C;&#x76F4;&#x5230;&#x6700;&#x9AD8;&#x7684;&#x4EF7;&#x683C;&#xFF0C;&#x6211;&#x4EEC;&#x7528;&#x6700;&#x9AD8;&#x7684;&#x4EF7;&#x683C;&#x51CF;&#x53BB;&#x6700;&#x4F4E;&#x7684;&#x4EF7;&#x683C;&#xFF0C;&#x8FD9;&#x662F;&#x5229;&#x6DA6;&#x589E;&#x76CA;&#x3002;</p>
+<p>&#x5206;&#x6790;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x4EF7;&#x683C;&#x8D70;&#x5411;&#x53EA;&#x6709;&#x4E0A;&#x9762;&#x4E24;&#x79CD;&#xFF0C;&#x8981;&#x4E0D;&#x662F;&#x4E00;&#x76F4;&#x9012;&#x589E;&#xFF0C;&#x8981;&#x4E0D;&#x5C31;&#x662F;&#x4E0B;&#x964D;&#x3002;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x5F52;&#x7EB3;&#x6210;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#xFF0C;&#x5199;&#x51FA;&#x4EE3;&#x7801;.&#x6CE8;&#x610F;&#x5199;&#x6210;&#x4E00;&#x822C;&#x60C5;&#x51B5;&#x4E0B;&#x65F6;&#xFF0C;&#x8981;&#x6CE8;&#x610F;&#x6700;&#x540E;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x8FD9;&#x91CC;&#x6700;&#x540E;push&#x4E00;&#x4E2A;INT_MIN&#xFF0C;&#x5C31;&#x80FD;&#x5904;&#x7406;&#x6240;&#x6709;&#x60C5;&#x51B5;</p>
 <h2 id="code">code</h2>
-<pre><code class="lang-text">class Solution {
-public:
-    bool judgeCircle(string moves) {
-        stack&lt;char&gt; lr;
-        stack&lt;char&gt; ud;
-        for(auto ch:moves){
-            if(ch==&apos;L&apos;){
-                if(lr.empty()||lr.top()==&apos;L&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
+<pre><code class="lang-c++"><span class="hljs-keyword">class</span> Solution {
+<span class="hljs-keyword">public</span>:
+    <span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">maxProfit</span><span class="hljs-params">(<span class="hljs-built_in">vector</span>&lt;<span class="hljs-keyword">int</span>&gt;&amp; prices)</span> </span>{
+        <span class="hljs-keyword">int</span> res=<span class="hljs-number">0</span>;
+        prices.push_back(INT_MIN);
+        <span class="hljs-keyword">int</span> base_index;
+        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i=<span class="hljs-number">0</span>;i&lt;prices.size()<span class="hljs-number">-1</span>;++i){
+            base_index=i;
+            <span class="hljs-keyword">while</span>(prices[i]&lt;=prices[i+<span class="hljs-number">1</span>]){
+                i++;
             }
-            if(ch==&apos;R&apos;){
-                if(lr.empty()||lr.top()==&apos;R&apos;){
-                    lr.push(ch);
-                }else
-                    lr.pop();
-            }
-            if(ch==&apos;U&apos;){
-                if(ud.empty()||ud.top()==&apos;U&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
-            if(ch==&apos;D&apos;){
-                if(ud.empty()||ud.top()==&apos;D&apos;){
-                    ud.push(ch);
-                }else
-                    ud.pop();
-            }
+            res+=(prices[i]-prices[base_index]);
         }
-        return lr.empty()&amp;&amp;ud.empty();
+        <span class="hljs-keyword">return</span> res;
     }
 };
 </code></pre>
 <h2 id="algorithm-analysis">algorithm analysis</h2>
-<p>&#x4E00;&#x4E2A;&#x5FAA;&#x73AF;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x65F6;&#x95F4;&#x662F;O(n)&#xFF0C;&#x6700;&#x5F00;&#x59CB;&#x62FF;&#x5230;&#x9898;&#x76EE;&#x7684;&#x65F6;&#x5019;&#x76F4;&#x63A5;&#x7C7B;&#x6BD4;&#x6210;&#x4E86;&#x62EC;&#x53F7;&#x5339;&#x914D;&#xFF0C;&#x5C31;&#x52A8;&#x624B;&#x505A;&#x4E86;&#x3002;&#x5176;&#x5B9E;&#x62EC;&#x53F7;&#x5339;&#x914D;&#x6BD4;&#x8FD9;&#x4E2A;&#x591A;&#x4E86;&#x4E00;&#x70B9;&#x4F4D;&#x7F6E;&#x4E0A;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x800C;&#x8FD9;&#x91CC;&#x53EA;&#x8981;&#x7EDF;&#x8BA1;&#x6570;&#x5B57;&#x5373;&#x53EF;&#x3002;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;4&#x4E2A;&#x53D8;&#x91CF;&#x4F1A;&#x66F4;&#x5FEB;&#xFF0C;&#x76F4;&#x63A5;&#x7528;4&#x4E2A;&#x5BC4;&#x5B58;&#x5668;&#x5B58;count&#xFF0C;&#x6700;&#x540E;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x4E5F;&#x662F;&#x4E00;&#x6B21;&#x904D;&#x5386;&#x6570;&#x7EC4;&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;O(n)</p>
 
                                 
                                 </section>
@@ -1623,12 +1626,12 @@ public:
 
             
                 
-                <a href="654.-maximum-binary-tree.html" class="navigation navigation-prev " aria-label="Previous page: 654. Maximum Binary Tree">
+                <a href="121.-Best-Time-to-Buy-and-Sell-Stock.html" class="navigation navigation-prev " aria-label="Previous page: 121. Best Time to Buy and Sell Stock">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="659.-split-array-into-consecutive-subsequences.html" class="navigation navigation-next " aria-label="Next page: 659. Split Array into Consecutive Subsequences">
+                <a href="123.-Best-Time-to-Buy-and-Sell-Stock-III.html" class="navigation navigation-next " aria-label="Next page: 123. Best Time to Buy and Sell Stock III">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1639,7 +1642,7 @@ public:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"657. Robot Return to Origin","level":"1.107","depth":1,"next":{"title":"659. Split Array into Consecutive Subsequences","level":"1.108","depth":1,"path":"659.-split-array-into-consecutive-subsequences.md","ref":"659.-split-array-into-consecutive-subsequences.md","articles":[]},"previous":{"title":"654. Maximum Binary Tree","level":"1.106","depth":1,"path":"654.-maximum-binary-tree.md","ref":"654.-maximum-binary-tree.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"657.-robot-reaturn-to-origin.md","mtime":"2019-10-25T02:05:45.425Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"122. Best Time to Buy and Sell Stock II","level":"1.103","depth":1,"next":{"title":"123. Best Time to Buy and Sell Stock III","level":"1.104","depth":1,"path":"123.-Best-Time-to-Buy-and-Sell-Stock-III.md","ref":"123.-Best-Time-to-Buy-and-Sell-Stock-III.md","articles":[]},"previous":{"title":"121. Best Time to Buy and Sell Stock","level":"1.102","depth":1,"path":"121.-Best-Time-to-Buy-and-Sell-Stock.md","ref":"121.-Best-Time-to-Buy-and-Sell-Stock.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"122.-Best-Time-to-Buy-and-Sell-Stock-II.md","mtime":"2019-10-29T00:35:15.139Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-10-29T01:29:54.463Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
