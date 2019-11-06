@@ -121,6 +121,8 @@
 * [141. Linked List Cycle](141.-Linked-List-Cycle.md)
 * [142. Linked List Cycle II](142.-Linked-List-Cycle-II.md)
 * [143. Reorder List](143.-Reorder-List.md)
+* [144. Binary Tree Preorder Traversal](144.-Binary-Tree-Preorder-Traversal.md)
+* [145. Binary Tree Postorder Traversal](145.-Binary-Tree-Postorder-Traversal.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
