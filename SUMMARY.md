@@ -134,6 +134,8 @@
 * [160. Intersection of Two Linked Lists](160.-Intersection-of-Two-Linked-Lists.md)
 * [164. Maximum Gap](164.-Maximum-Gap.md)
 * [169. Majority Element](169.-Majority-Element.md)
+* [179. Largest Number](179.-Largest-Number.md)
+* [187. Repeated DNA Sequences](187.-Repeated-DNA-Sequences.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
