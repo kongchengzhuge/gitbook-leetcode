@@ -136,8 +136,12 @@
 * [169. Majority Element](169.-Majority-Element.md)
 * [179. Largest Number](179.-Largest-Number.md)
 * [187. Repeated DNA Sequences](187.-Repeated-DNA-Sequences.md)
+* [188. Best Time to Buy and Sell Stock IV](188.-Best-Time-to-Buy-and-Sell-Stock-IV.md)
+* [199. Binary Tree Right Side View](199.-Binary-Tree-Right-Side-View.md)
+* [200. Number of Islands](200.-Number-of-Islands.md)
+* [201. Bitwise AND of Numbers Range](201-&#32;Bitwise-AND-of-Numbers-Range.md)
+* [202. Happy Number](202.-Happy-Number.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
 * [1223. Dice Roll Simulation](1223.-dice-roll-simulation.md)
-
