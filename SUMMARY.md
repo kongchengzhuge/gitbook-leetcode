@@ -155,9 +155,11 @@
 * [220. Contains Duplicate III](220.-Contains-Duplicate-III.md)
 * [221. Maximal Square](221.-Maximal-Square.md)
 * [222. Count Complete Tree Nodes](222.-Count-Complete-Tree-Nodes.md)
+* [223. Rectangle Area](223.-Rectangle-Area.md)
+* [224. Basic Calculator](224.-Basic-Calculator.md)
+* [225. Implement Stack using Queues](225.-Implement-Stack-using-Queues.md)
 * [654. Maximum Binary Tree](654.-maximum-binary-tree.md)
 * [657. Robot Return to Origin](657.-robot-reaturn-to-origin.md)
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
 * [662. Maximum Width of Binary Tree](662.-maximum-width-of-binary-tree.md)
 * [1223. Dice Roll Simulation](1223.-dice-roll-simulation.md)
-
