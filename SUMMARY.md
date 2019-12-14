@@ -1,4 +1,4 @@
-# Table of contents
+# Summary
 
 * [README.md](README.md)
 * [1. Two Sum](1.-two-sum.md)
@@ -22,7 +22,7 @@
 * [23. Merge k Sorted Lists](23.-merge-k-sorted-lists.md)
 * [24. Swap Nodes in Pairs](24.-swap-nodes-in-pairs.md)
 * [27. Remove Element](27.-remove-element.md)
-* [28. Implement strStr\(\)](28.-implement-strstrkmp-suan-fa.md)
+* [28. Implement strStr()](28.-implement-strstrkmp-suan-fa.md)
 * [29. Divide Two Integers](29.-divide-two-integers.md)
 * [31. Next Permutation](31.-next-permutation.md)
 * [32. Longest Valid Parentheses](32.-longest-valid-parentheses.md)
@@ -40,7 +40,7 @@
 * [47. Permutations II](47.-permutations-ii.md)
 * [48. Rotate Image](48.-rotate-image.md)
 * [49. Group Anagrams](49.-group-anagrams.md)
-* [50. Pow\(x, n\)](50.-pow-x-n.md)
+* [50. Pow(x, n)](50.-pow-x-n.md)
 * [51. N-Queens](51.-n-queens.md)
 * [52. N-Queens II](52.-n-queens-ii.md)
 * [53. Maximum Subarray](53.-maximum-subarray.md)
@@ -55,7 +55,7 @@
 * [63. Unique Paths II](63.-unique-paths-ii.md)
 * [64. Minimum Path Sum](64.-minimum-path-sum.md)
 * [67. Add Binary](67.-add-binary.md)
-* [69. Sqrt\(x\)](69.-sqrt-x.md)
+* [69. Sqrt(x)](69.-sqrt-x.md)
 * [70. Climbing Stairs](70.-climbing-stairs.md)
 * [72. Edit Distance](72.-edit-distance.md)
 * [73. Set Matrix Zeroes](73.-set-matrix-zeroes.md)
@@ -139,12 +139,12 @@
 * [188. Best Time to Buy and Sell Stock IV](188.-Best-Time-to-Buy-and-Sell-Stock-IV.md)
 * [199. Binary Tree Right Side View](199.-Binary-Tree-Right-Side-View.md)
 * [200. Number of Islands](200.-Number-of-Islands.md)
-* [201. Bitwise AND of Numbers Range](201-&#32;Bitwise-AND-of-Numbers-Range.md)
+* [201. Bitwise AND of Numbers Range](201- Bitwise-AND-of-Numbers-Range.md)
 * [202. Happy Number](202.-Happy-Number.md)
 * [204. Count Primes](204.-Count-Primes.md)
 * [205. Isomorphic Strings](205.-Isomorphic-Strings.md)
 * [207. Course Schedule](207.-Course-Schedule.md)
-* [208. Implement Trie (Prefix Tree)](208.-Implement-Trie-(Prefix-Tree).md)
+* [208. Implement Trie (Prefix Tree)](208.-Implement-Trie-(Prefix-Tree)
 * [209. Minimum Size Subarray Sum](209.-Minimum-Size-Subarray-Sum.md)
 * [211. Add and Search Word Data structure design](211.-Add-and-Search-Word-Data-structure-design.md)
 * [212. Word Search II](212.-Word-Search-II.md)
@@ -175,3 +175,4 @@
 * [659. Split Array into Consecutive Subsequences](659.-split-array-into-consecutive-subsequences.md)
 * [662. Maximum Width of Binary Tree](662.-maximum-width-of-binary-tree.md)
 * [1223. Dice Roll Simulation](1223.-dice-roll-simulation.md)
+
