@@ -114,7 +114,7 @@
 * [133. Clone Graph](133.-Clone-Graph.md)
 * [134. Gas Station](134.-Gas-Station.md)
 * [135. Candy](135.-Candy.md)
-* [136. ingle Number](136.&#32;-ingle-Number.md)
+* [136. ingle Number](136.-Single-Number.md)
 * [137. Single Number II](137.-Single-Number-II.md)
 * [139. Word Break](139.-Word-Break.md)
 * [140. Word Break II](140.-Word-Break-II.md)
